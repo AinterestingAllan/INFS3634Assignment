@@ -2,6 +2,7 @@ package com.example.infs3634assignment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 /**
@@ -74,11 +76,46 @@ public class RecipeMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe_menu, container, false);
-        Button mexicanbutton = (Button) view.findViewById(R.id.MexicanButton);
 
+        ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
         mexicanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 showMexicanFragment();
+            }
+        });
+
+        ImageButton americanbutton = view.findViewById(R.id.AmericanButton);
+        americanbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showAmericanFragment();
+            }
+        });
+
+        ImageButton italianbutton =  view.findViewById(R.id.ItalianButton);
+        italianbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showItalianFragment();
+            }
+        });
+
+        ImageButton chinesebutton =  view.findViewById(R.id.ChineseButton);
+        chinesebutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showChineseFragment();
+            }
+        });
+
+        ImageButton greekbutton =  view.findViewById(R.id.GreekButton);
+        greekbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showGreekFragment();
+            }
+        });
+
+        ImageButton indianbutton = view.findViewById(R.id.IndianButton);
+        indianbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                showIndianFragment();
             }
         });
 
@@ -130,5 +167,41 @@ public class RecipeMenuFragment extends Fragment {
         FragmentSwitcher fc=(FragmentSwitcher) getActivity();
         fc.replaceFragment(fr);
     }
+
+    public void showAmericanFragment()
+    {
+        Fragment fr = new AmericanFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
+    public void showItalianFragment()
+    {
+        Fragment fr = new ItalianFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
+    public void showChineseFragment()
+    {
+        Fragment fr = new ChineseFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
+    public void showGreekFragment()
+    {
+        Fragment fr = new GreekFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
+    public void showIndianFragment()
+    {
+        Fragment fr = new IndianFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
 
 }

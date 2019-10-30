@@ -16,7 +16,12 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends FragmentActivity
-        implements QuizMenuFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener, MexicanFragment.OnFragmentInteractionListener, FragmentSwitcher {
+        implements QuizMenuFragment.OnFragmentInteractionListener,
+        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener,
+        MexicanFragment.OnFragmentInteractionListener, AmericanFragment.OnFragmentInteractionListener,
+        ItalianFragment.OnFragmentInteractionListener, ChineseFragment.OnFragmentInteractionListener,
+        IndianFragment.OnFragmentInteractionListener, GreekFragment.OnFragmentInteractionListener,
+        FragmentSwitcher {
 
 
         @Override

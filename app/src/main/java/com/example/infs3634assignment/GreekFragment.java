@@ -37,7 +37,7 @@ import java.util.ArrayList;
  * Use the {@link RecipeListFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MexicanFragment extends Fragment {
+public class GreekFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -52,7 +52,7 @@ public class MexicanFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public MexicanFragment() {
+    public GreekFragment() {
         // Required empty public constructor
     }
 
@@ -65,8 +65,8 @@ public class MexicanFragment extends Fragment {
      * @return A new instance of fragment RecipeListFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MexicanFragment newInstance(String param1, String param2) {
-        MexicanFragment fragment = new MexicanFragment();
+    public static GreekFragment newInstance(String param1, String param2) {
+        GreekFragment fragment = new GreekFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -87,9 +87,9 @@ public class MexicanFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_mexican, container, false);
+        final View view = inflater.inflate(R.layout.fragment_greek, container, false);
 
-        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=mexican&diet=ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=true&number=10&apiKey=729163f9193a406bad906488d2b607f9";
+        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=greek&diet=ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=true&number=10&apiKey=729163f9193a406bad906488d2b607f9";
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
 

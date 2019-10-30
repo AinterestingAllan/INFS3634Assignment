@@ -7,64 +7,108 @@
     tools:context=".RecipeMenuFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="113dp"
+        android:layout_height="166dp"
+        android:src="@drawable/ketofirstlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/Title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Recipe Menu Fragment" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Pick a Cuisine"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Logo" />
 
-    <Button
+    <ImageButton
         android:id="@+id/ItalianButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/italianimage"
         android:text="Italian"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Title"
+        app:layout_constraintEnd_toStartOf="@id/MexicanButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/MexicanButton"></Button>
+        app:layout_constraintBottom_toTopOf="@id/AmericanButton"
+        android:scaleType="fitCenter"
+        android:background="@null"></ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/MexicanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/mexicanimage"
         android:text="Mexican"
+        app:layout_constraintBottom_toTopOf="@id/ChineseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ItalianButton"></Button>
+        app:layout_constraintStart_toEndOf="@id/ItalianButton"
+        app:layout_constraintTop_toBottomOf="@id/Title"
+        android:background="@null"></ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/AmericanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/americanimage"
         android:text="American"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ChineseButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/MexicanButton"></Button>
+        app:layout_constraintTop_toBottomOf="@id/ItalianButton"
+        app:layout_constraintBottom_toTopOf="@id/IndianButton"
+        android:scaleType="fitCenter"
+        android:background="@null"></ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/ChineseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/chineseimage"
         android:text="Chinese"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/AmericanButton"></Button>
+        app:layout_constraintStart_toEndOf="@id/AmericanButton"
+        app:layout_constraintTop_toBottomOf="@id/MexicanButton"
+        app:layout_constraintBottom_toTopOf="@id/GreekButton"
+        android:scaleType="fitCenter"
+        android:background="@null"></ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/IndianButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/indianimage"
         android:text="Indian"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/GreekButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ChineseButton"></Button>
+        app:layout_constraintTop_toBottomOf="@id/AmericanButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="50sp"
+        android:background="@null"></ImageButton>
 
-    <Button
+    <ImageButton
         android:id="@+id/GreekButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85sp"
+        android:layout_height="85sp"
+        android:src="@drawable/greekimage"
         android:text="Greek"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/IndianButton"></Button>
+        app:layout_constraintStart_toEndOf="@id/IndianButton"
+        app:layout_constraintTop_toBottomOf="@id/ChineseButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:scaleType="fitCenter"
+        android:layout_marginBottom="50sp"
+        android:background="@null"></ImageButton>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
