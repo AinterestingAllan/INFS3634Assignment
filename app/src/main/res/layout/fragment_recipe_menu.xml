@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeMenuFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Recipe Menu Fragment" />
+
+    <Button
+        android:id="@+id/ItalianButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Italian"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/MexicanButton"></Button>
+
+    <Button
+        android:id="@+id/MexicanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mexican"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ItalianButton"></Button>
+
+    <Button
+        android:id="@+id/AmericanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="American"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/MexicanButton"></Button>
+
+    <Button
+        android:id="@+id/ChineseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chinese"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/AmericanButton"></Button>
+
+    <Button
+        android:id="@+id/IndianButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Indian"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ChineseButton"></Button>
+
+    <Button
+        android:id="@+id/GreekButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Greek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/IndianButton"></Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/recipeicon"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="Recipes" />
+
+    <item
+        android:id="@+id/quizicon"
+        android:icon="@android:drawable/ic_input_get"
+        android:title="Quizzes" />
+    <item
+        android:id="@+id/profileicon"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Profile" />
+</menu>
