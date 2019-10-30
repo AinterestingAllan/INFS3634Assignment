@@ -1,13 +1,41 @@
 package com.example.infs3634assignment;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Recipe {
+public class Recipe implements Serializable {
     public int id;
     public String title;
     public String sourceUrl;
     public String image;
     public ArrayList nutrition;
+    public String readyInMinutes;
+    public String servings;
+    public String sourceName;
+
+    public String getReadyInMinutes() {
+        return readyInMinutes;
+    }
+
+    public void setReadyInMinutes(String readyInMinutes) {
+        this.readyInMinutes = readyInMinutes;
+    }
+
+    public String getServings() {
+        return servings;
+    }
+
+    public void setServings(String servings) {
+        this.servings = servings;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
 
     public Recipe(){
 

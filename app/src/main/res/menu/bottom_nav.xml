@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/recipeicon"
-        android:icon="@android:drawable/ic_menu_mapmode"
+        android:icon="@drawable/whisk"
         android:title="Recipes" />
 
     <item
         android:id="@+id/quizicon"
-        android:icon="@android:drawable/ic_input_get"
+        android:icon="@drawable/quiz"
         android:title="Quizzes" />
     <item
         android:id="@+id/profileicon"
-        android:icon="@android:drawable/ic_menu_myplaces"
+        android:icon="@drawable/user"
         android:title="Profile" />
 </menu>

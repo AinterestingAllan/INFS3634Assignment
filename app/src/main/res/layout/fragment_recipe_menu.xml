@@ -15,15 +15,17 @@
         android:src="@drawable/ketofirstlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10sp"/>
 
     <TextView
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Pick a Cuisine"
+        android:text="RECIPES"
         android:textSize="20sp"
+        app:fontFamily="@font/hind_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,8 +33,8 @@
 
     <ImageButton
         android:id="@+id/ItalianButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
         android:src="@drawable/italianimage"
         android:text="Italian"
         app:layout_constraintTop_toBottomOf="@id/Title"
@@ -44,21 +46,21 @@
 
     <ImageButton
         android:id="@+id/MexicanButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
+        android:background="@null"
         android:scaleType="fitCenter"
         android:src="@drawable/mexicanimage"
         android:text="Mexican"
         app:layout_constraintBottom_toTopOf="@id/ChineseButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ItalianButton"
-        app:layout_constraintTop_toBottomOf="@id/Title"
-        android:background="@null"></ImageButton>
+        app:layout_constraintTop_toBottomOf="@id/Title"></ImageButton>
 
     <ImageButton
         android:id="@+id/AmericanButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
         android:src="@drawable/americanimage"
         android:text="American"
         app:layout_constraintEnd_toStartOf="@id/ChineseButton"
@@ -70,8 +72,8 @@
 
     <ImageButton
         android:id="@+id/ChineseButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
         android:src="@drawable/chineseimage"
         android:text="Chinese"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,8 +85,8 @@
 
     <ImageButton
         android:id="@+id/IndianButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
         android:src="@drawable/indianimage"
         android:text="Indian"
         app:layout_constraintEnd_toStartOf="@id/GreekButton"
@@ -97,8 +99,8 @@
 
     <ImageButton
         android:id="@+id/GreekButton"
-        android:layout_width="85sp"
-        android:layout_height="85sp"
+        android:layout_width="80sp"
+        android:layout_height="90sp"
         android:src="@drawable/greekimage"
         android:text="Greek"
         app:layout_constraintEnd_toEndOf="parent"

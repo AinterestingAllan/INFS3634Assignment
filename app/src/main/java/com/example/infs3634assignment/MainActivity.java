@@ -29,6 +29,12 @@ public class MainActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+            RecipeMenuFragment fragment = new RecipeMenuFragment();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragmentSlot, fragment);
+            fragmentTransaction.commit();
+
         final BottomNavigationView BottomNav = findViewById(R.id.BottomNav);
         BottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:paddingTop="2sp"
+    android:paddingBottom="2sp">
+
+    <ImageView
+        android:id="@+id/RecipeImage"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@mipmap/ic_launcher_round"
+
+        android:layout_margin="10sp"></ImageView>
 
     <TextView
         android:id="@+id/RecipeTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recipe Title"></TextView>
+        android:layout_height="match_parent"
+        android:layout_margin="10sp"
+        android:text="• Recipe Title"
+        android:textSize="15sp"
+        android:gravity="center_vertical"
+        app:fontFamily="@font/hind_light"></TextView>
 
 </LinearLayout>

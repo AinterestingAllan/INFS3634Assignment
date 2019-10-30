@@ -89,7 +89,7 @@ public class GreekFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_greek, container, false);
 
-        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=greek&diet=ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=true&number=10&apiKey=729163f9193a406bad906488d2b607f9";
+        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=greek&diet=ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=true&number=10&apiKey=5e7e568d86c8429699fe393d895406e6";
         RequestQueue queue = Volley.newRequestQueue(getContext());
 
 

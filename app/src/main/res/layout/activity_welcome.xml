@@ -8,9 +8,11 @@
 
     <ImageView
         android:id="@+id/Logo"
-        android:layout_width="113dp"
-        android:layout_height="166dp"
+        android:layout_width="152dp"
+        android:layout_height="198dp"
         android:src="@drawable/ketofirstlogo"
+        android:layout_margin="30sp"
+        app:layout_constraintBottom_toTopOf="@id/Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,9 +21,11 @@
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15sp"
         android:gravity="center_horizontal"
-        android:text="Welcome to Keto First"
-        android:textSize="20sp"
+        android:text="WELCOME"
+        android:textSize="30sp"
+        app:fontFamily="@font/hind_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,23 +35,26 @@
         android:id="@+id/Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="20sp"
+        android:gravity="center"
         android:paddingLeft="20sp"
-        android:textSize="15sp"
+        android:paddingRight="20sp"
         android:text="Keto First is the gateway for first-time Keto dieters into the world of low-carb meals. Starting a new diet can be hard so we are here to help - providing easy Keto recipes to get you started on your journey. Educate yourself about new recipes and test your Keto knowledge with our fun quizzes!"
-        app:layout_constraintBottom_toTopOf="nextButton"
+        android:textSize="15sp"
+        app:fontFamily="@font/hind_light"
+        app:layout_constraintBottom_toTopOf="@id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Title"
-        android:gravity="center"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/Title"></TextView>
 
     <ImageButton
         android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:background="@null"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Body"
-        app:srcCompat="@drawable/right-arrow" />
+        app:srcCompat="@drawable/nextarrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

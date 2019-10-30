@@ -6,40 +6,129 @@
     android:layout_height="match_parent"
     tools:context=".DetailRecipe">
 
-    <TextView
-        android:id="@+id/DetailTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recipe Title"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="50sp">
 
-    <ImageView
-        android:id="@+id/DetailImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recipe Image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/DetailTitle">
-    </ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/DetailURL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Recipe URL"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/DetailImage">
-    </TextView>
+        <ImageView
+            android:id="@+id/DetailImage"
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:layout_margin="5sp"
+            android:scaleType="centerCrop"
+            android:text="Recipe Image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher_round"></ImageView>
 
-    <TextView
-        android:id="@+id/DetailNutrition"
-        android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/DetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:text="Recipe Title"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                app:fontFamily="@font/hind_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/DetailImage"></TextView>
+
+            <TextView
+                android:id="@+id/DetailSource"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:text="By: "
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                app:fontFamily="@font/hind_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/DetailTitle"></TextView>
+
+
+        <TextView
+            android:id="@+id/DetailMinutes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Ready in "
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:fontFamily="@font/hind_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DetailSource"></TextView>
+
+        <TextView
+            android:id="@+id/DetailServings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Serves: "
+            android:textSize="15sp"
+            app:fontFamily="@font/hind_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DetailMinutes"></TextView>
+
+        <TextView
+            android:id="@+id/DetailURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:autoLink="web"
+            android:text="Recipe URL"
+            android:textSize="15sp"
+            app:fontFamily="@font/hind_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DetailServings"></TextView>
+
+        <TextView
+            android:id="@+id/DetailNutritionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Nutritional Data"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/hind_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DetailURL"></TextView>
+
+        <TextView
+            android:id="@+id/DetailNutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Nutrition"
+            android:textSize="15sp"
+            app:fontFamily="@font/hind_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DetailNutritionTitle"></TextView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/BottomNav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nutrition"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/DetailURL">
-    </TextView>
+        android:background="#FFFFFF"
+        app:itemIconTint="#222222"
+        app:itemTextColor="#222222"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

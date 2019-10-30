@@ -12,6 +12,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
@@ -38,6 +40,9 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
         String titletext = recipe.getTitle();
         holder.recipeTitle.setText(titletext);
 
+        String imagetext = recipe.getImage();
+        Glide.with(holder.recipeImage.getContext()).load(imagetext).into(holder.recipeImage);
+
         holder.recipeTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,8 +53,12 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
                 b.putString("recipeURL", recipe.getSourceUrl());
                 b.putString("recipeImage", recipe.getImage());
                 b.putStringArrayList("recipeNutrition", recipe.getNutrition());
+                b.putString("recipeMinutes", recipe.getReadyInMinutes());
+                b.putString("recipeServings",recipe.getServings());
+                b.putString("recipeSource", recipe.getSourceName());
                 i.putExtras(b);
                 mContext.startActivity(i);
+
             }
         });
 
@@ -62,11 +71,13 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView recipeTitle;
+        public ImageView recipeImage;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
             recipeTitle = (TextView) itemView.findViewById(R.id.RecipeTitle);
+            recipeImage = itemView.findViewById(R.id.RecipeImage);
 
 
         }
