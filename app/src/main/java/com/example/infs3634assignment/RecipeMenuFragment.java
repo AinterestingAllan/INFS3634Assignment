@@ -80,42 +80,42 @@ public class RecipeMenuFragment extends Fragment {
         ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
         mexicanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("Chinese", "url");
+                showRecipeFragment("MEXICAN", "url");
             }
         });
 
         ImageButton americanbutton = view.findViewById(R.id.AmericanButton);
         americanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showAmericanFragment();
+                showRecipeFragment("AMERICAN", "url");
             }
         });
 
         ImageButton italianbutton =  view.findViewById(R.id.ItalianButton);
         italianbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showItalianFragment();
+                showRecipeFragment("ITALIAN", "url");
             }
         });
 
         ImageButton chinesebutton =  view.findViewById(R.id.ChineseButton);
         chinesebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showChineseFragment();
+                showRecipeFragment("CHINESE", "url");
             }
         });
 
         ImageButton greekbutton =  view.findViewById(R.id.GreekButton);
         greekbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showGreekFragment();
+                showRecipeFragment("GREEK", "url");
             }
         });
 
         ImageButton indianbutton = view.findViewById(R.id.IndianButton);
         indianbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showIndianFragment();
+                showRecipeFragment("INDIAN", "url");
             }
         });
 
@@ -159,48 +159,6 @@ public class RecipeMenuFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
-    }
-
-    public void showMexicanFragment()
-    {
-        Fragment fr = new MexicanFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
-    }
-
-    public void showAmericanFragment()
-    {
-        Fragment fr = new AmericanFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
-    }
-
-    public void showItalianFragment()
-    {
-        Fragment fr = new ItalianFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
-    }
-
-    public void showChineseFragment()
-    {
-        Fragment fr = new ChineseFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
-    }
-
-    public void showGreekFragment()
-    {
-        Fragment fr = new GreekFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
-    }
-
-    public void showIndianFragment()
-    {
-        Fragment fr = new IndianFragment();
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr);
     }
 
     public void showRecipeFragment(String recipeName, String url){

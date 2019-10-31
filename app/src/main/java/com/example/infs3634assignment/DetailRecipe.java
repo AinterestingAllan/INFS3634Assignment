@@ -18,10 +18,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
-        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener,
-        MexicanFragment.OnFragmentInteractionListener, AmericanFragment.OnFragmentInteractionListener,
-        ItalianFragment.OnFragmentInteractionListener, ChineseFragment.OnFragmentInteractionListener,
-        IndianFragment.OnFragmentInteractionListener, GreekFragment.OnFragmentInteractionListener {
+        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
+ {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
