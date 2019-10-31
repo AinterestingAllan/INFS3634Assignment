@@ -21,7 +21,7 @@ public class MainActivity extends FragmentActivity
         MexicanFragment.OnFragmentInteractionListener, AmericanFragment.OnFragmentInteractionListener,
         ItalianFragment.OnFragmentInteractionListener, ChineseFragment.OnFragmentInteractionListener,
         IndianFragment.OnFragmentInteractionListener, GreekFragment.OnFragmentInteractionListener,
-        FragmentSwitcher {
+        FragmentSwitcher,RecipeFragment.OnFragmentInteractionListener {
 
 
         @Override

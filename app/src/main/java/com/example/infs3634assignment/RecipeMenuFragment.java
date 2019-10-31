@@ -80,7 +80,7 @@ public class RecipeMenuFragment extends Fragment {
         ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
         mexicanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showMexicanFragment();
+                showRecipeFragment("Chinese", "url");
             }
         });
 
@@ -199,6 +199,12 @@ public class RecipeMenuFragment extends Fragment {
     public void showIndianFragment()
     {
         Fragment fr = new IndianFragment();
+        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
+        fc.replaceFragment(fr);
+    }
+
+    public void showRecipeFragment(String recipeName, String url){
+        Fragment fr = new RecipeFragment(recipeName,url);
         FragmentSwitcher fc=(FragmentSwitcher) getActivity();
         fc.replaceFragment(fr);
     }
