@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -87,7 +88,8 @@ public class RecipeFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         fRecipeList.setLayoutManager(linearLayoutManager);
-        List<Recipe> recipesList = null;
+        ArrayList<Recipe> recipesList = new ArrayList<>();
+
         MAdapter mAdapter = new MAdapter(getActivity(),recipesList);
         fRecipeList.setAdapter(mAdapter);
 

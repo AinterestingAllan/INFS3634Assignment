@@ -13,6 +13,18 @@ public class Recipe implements Serializable {
     public String servings;
     public String sourceName;
 
+    public Recipe(int id, String title, String sourceUrl, String image, ArrayList nutrition,
+                  String readyInMinutes, String servings, String sourceName) {
+        this.id = id;
+        this.title = title;
+        this.sourceUrl = sourceUrl;
+        this.image = image;
+        this.nutrition = nutrition;
+        this.readyInMinutes = readyInMinutes;
+        this.servings = servings;
+        this.sourceName = sourceName;
+    }
+
     public String getReadyInMinutes() {
         return readyInMinutes;
     }
