@@ -36,6 +36,7 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        // Setting recipe row details for Recycler View
         final Recipe recipe = mRecipe.get(position);
         String titletext = recipe.getTitle();
         holder.recipeTitle.setText(titletext);
@@ -43,6 +44,7 @@ public class mAdapter extends RecyclerView.Adapter<mAdapter.ViewHolder> {
         String imagetext = recipe.getImage();
         Glide.with(holder.recipeImage.getContext()).load(imagetext).into(holder.recipeImage);
 
+        // Passing intents to Detail Recipe
         holder.recipeTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,6 +16,7 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        // Set content for welcome page
         final LinearLayout item1 = findViewById(R.id.inforow);
         TextView infotitle = item1.findViewById(R.id.Title);
         TextView infobody = item1.findViewById(R.id.Body);
@@ -40,7 +41,7 @@ public class Welcome extends AppCompatActivity {
         commentstitle.setText("Comments");
         commentsrow.setText("Add notes and comments to recipes to keep track of your thoughts and points of interest!\n");
 
-
+        // Moves to main activity
         ImageButton nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
