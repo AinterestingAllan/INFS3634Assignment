@@ -26,6 +26,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_recipe);
 
+        // Grab intent from Recipe List and set all views in Detail Recipe.
         Bundle b = getIntent().getExtras();
         String receivingTitle = b.getString("recipeTitle");
         String receivingURL = b.getString("recipeURL");
@@ -80,7 +81,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         TextView DetailNutrition = findViewById(R.id.DetailNutrition);
         DetailNutrition.setText(builder.toString());
 
-
+        // Code for bottom navigation
         final BottomNavigationView BottomNav = findViewById(R.id.BottomNav);
         BottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -102,6 +103,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
 
     }
 
+    //Methods for fragment switching
     public void switchToFragment1() {
         Intent i = new Intent(DetailRecipe.this, MainActivity.class);
         startActivity(i);

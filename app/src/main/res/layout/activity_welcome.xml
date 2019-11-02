@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/Logo"
-        android:layout_width="152dp"
-        android:layout_height="198dp"
-        android:src="@drawable/ketofirstlogo"
+        android:layout_width="142dp"
+        android:layout_height="172dp"
         android:layout_margin="30sp"
+        android:src="@drawable/ketofirstlogo"
         app:layout_constraintBottom_toTopOf="@id/Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:id="@+id/Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15sp"
+        android:padding="15sp"
         android:gravity="center_horizontal"
         android:text="WELCOME"
         android:textSize="30sp"
@@ -31,25 +31,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Logo" />
 
-    <TextView
+    <ScrollView
         android:id="@+id/Body"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingLeft="20sp"
-        android:paddingRight="20sp"
-        android:text="Keto First is the gateway for first-time Keto dieters into the world of low-carb meals. Starting a new diet can be hard so we are here to help - providing easy Keto recipes to get you started on your journey. Educate yourself about new recipes and test your Keto knowledge with our fun quizzes!"
-        android:textSize="15sp"
-        app:fontFamily="@font/hind_light"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Title"></TextView>
+        app:layout_constraintTop_toBottomOf="@id/Title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="66dp"
+            tools:layout_editor_absoluteY="109dp">
+
+            <include
+                android:id="@+id/inforow"
+                layout="@layout/welcomerow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/reciperow"
+                layout="@layout/welcomerow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/quizrow"
+                layout="@layout/welcomerow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/commentsrow"
+                layout="@layout/welcomerow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
     <ImageButton
         android:id="@+id/nextButton"
         android:layout_width="40sp"
         android:layout_height="40sp"
+        android:layout_margin="20sp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
