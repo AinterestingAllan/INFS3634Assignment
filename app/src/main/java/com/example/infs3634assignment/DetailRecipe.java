@@ -81,50 +81,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         TextView DetailNutrition = findViewById(R.id.DetailNutrition);
         DetailNutrition.setText(builder.toString());
 
-        // Code for bottom navigation
-        final BottomNavigationView BottomNav = findViewById(R.id.BottomNav);
-        BottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.recipeicon:
-                        switchToFragment1();
-                        break;
-                    case R.id.quizicon:
-                        switchToFragment2();
-                        break;
-                    case R.id.profileicon:
-                        switchToFragment3();
-                        break;
-                }
-                return false;
-            }
-        });
-
     }
-
-    //Methods for fragment switching
-    public void switchToFragment1() {
-        Intent i = new Intent(DetailRecipe.this, MainActivity.class);
-        startActivity(i);
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new RecipeMenuFragment()).commit();
-    }
-
-    public void switchToFragment2() {
-        Intent i = new Intent(DetailRecipe.this, MainActivity.class);
-        startActivity(i);
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new QuizMenuFragment()).commit();
-    }
-
-    public void switchToFragment3() {
-        Intent i = new Intent(DetailRecipe.this, MainActivity.class);
-        startActivity(i);
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new ProfileFragment()).commit();
-    }
-
 
     @Override
     public void onFragmentInteraction(Uri uri) {
