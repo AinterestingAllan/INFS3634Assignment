@@ -65,7 +65,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         ImageView DetailImage = findViewById(R.id.DetailImage);
         Glide.with(DetailImage.getContext()).load(recipeImage).into(DetailImage);
 
-        TextView DetailSource= findViewById(R.id.DetailSource);
+        TextView DetailSource= findViewById(R.id.HealthRank);
         DetailSource.setText("By: " + recipeSource);
 
         TextView DetailMinutes = findViewById(R.id.PreparationM);
