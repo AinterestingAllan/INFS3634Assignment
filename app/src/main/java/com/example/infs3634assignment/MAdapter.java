@@ -13,16 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.infs3634assignment.model.Result;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
 
-    private List<Recipe> mRecipe;
+    private List<Result> mRecipe;
     private Context mContext;
 
-    public MAdapter(Context context, List<Recipe> recipes) {
+    public MAdapter(Context context, List<Result> recipes) {
         mRecipe = recipes;
         mContext = context;
     }
@@ -38,7 +39,7 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         // Setting recipe row details for Recycler View
-        final Recipe recipe = mRecipe.get(position);
+        final Result recipe = mRecipe.get(position);
         String titletext = recipe.getTitle();
         holder.recipeTitle.setText(titletext);
 
@@ -51,14 +52,11 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
             public void onClick(View view) {
                 Intent i = new Intent(mContext, DetailRecipe.class);
                 Bundle b = new Bundle();
-                final Recipe recipe = mRecipe.get(position);
+                final Result recipe = mRecipe.get(position);
                 b.putString("recipeTitle",recipe.getTitle());
                 b.putString("recipeURL", recipe.getSourceUrl());
                 b.putString("recipeImage", recipe.getImage());
-                b.putStringArrayList("recipeNutrition", recipe.getNutrition());
-                b.putString("recipeMinutes", recipe.getReadyInMinutes());
-                b.putString("recipeServings",recipe.getServings());
-                b.putString("recipeSource", recipe.getSourceName());
+                // b.putStringArrayList("recipeNutrition", recipe.getNutrition().get(position).getTitle());
                 i.putExtras(b);
                 mContext.startActivity(i);
 

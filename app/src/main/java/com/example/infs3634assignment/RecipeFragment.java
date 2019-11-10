@@ -14,6 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.infs3634assignment.model.MyResponse;
+import com.example.infs3634assignment.model.Result;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,15 +93,43 @@ public class RecipeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recipe, container, false);
         TextView fName = view.findViewById(R.id.fTitle);
-        RecyclerView fRecipeList = view.findViewById(R.id.fRecipeList);
         fName.setText(this.recipeName);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        fRecipeList.setLayoutManager(linearLayoutManager);
-        ArrayList<Recipe> recipesList = new ArrayList<>();
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
+                "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
+                "true&number=10&apiKey=5e7e568d86c8429699fe393d895406e6";
 
-        MAdapter mAdapter = new MAdapter(getActivity(),recipesList);
-        fRecipeList.setAdapter(mAdapter);
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // response = JSON string, so you can do parsing with Gson here
+                MyResponse myResponse = new Gson().fromJson(response,
+                        MyResponse.class);
+                List<Result> data = myResponse.getResults();
+
+                RecyclerView fRecipeList = getActivity().findViewById(R.id.fRecipeList);
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                fRecipeList.setLayoutManager(linearLayoutManager);
+
+
+                MAdapter recyclerViewAdapter = new MAdapter(getContext(),data);
+                fRecipeList.setAdapter(recyclerViewAdapter);
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+                System.out.println("The request failed.");
+            }
+        };
+
+
+        StringRequest stringRequest =
+                new StringRequest(Request.Method.GET, url, responseListener, errorListener);
+        requestQueue.add(stringRequest);
 
         return view;
     }

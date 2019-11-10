@@ -80,42 +80,42 @@ public class RecipeMenuFragment extends Fragment {
         ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
         mexicanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("MEXICAN", "url");
+                showRecipeFragment("mexican", "url");
             }
         });
 
         ImageButton americanbutton = view.findViewById(R.id.AmericanButton);
         americanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("AMERICAN", "url");
+                showRecipeFragment("american", "url");
             }
         });
 
         ImageButton italianbutton =  view.findViewById(R.id.ItalianButton);
         italianbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("ITALIAN", "url");
+                showRecipeFragment("italian", "url");
             }
         });
 
         ImageButton chinesebutton =  view.findViewById(R.id.ChineseButton);
         chinesebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("CHINESE", "url");
+                showRecipeFragment("chinese", "url");
             }
         });
 
         ImageButton greekbutton =  view.findViewById(R.id.GreekButton);
         greekbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("GREEK", "url");
+                showRecipeFragment("greek", "url");
             }
         });
 
         ImageButton indianbutton = view.findViewById(R.id.IndianButton);
         indianbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                showRecipeFragment("INDIAN", "url");
+                showRecipeFragment("indian", "url");
             }
         });
 

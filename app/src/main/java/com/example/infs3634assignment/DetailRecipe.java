@@ -2,7 +2,6 @@ package com.example.infs3634assignment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NavUtils;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
@@ -69,13 +68,13 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         TextView DetailSource= findViewById(R.id.DetailSource);
         DetailSource.setText("By: " + recipeSource);
 
-        TextView DetailMinutes = findViewById(R.id.DetailMinutes);
+        TextView DetailMinutes = findViewById(R.id.PreparationM);
         DetailMinutes.setText("Ready in " + recipeMinutes + " minutes");
 
-        TextView DetailServings = findViewById(R.id.DetailServings);
+        TextView DetailServings = findViewById(R.id.glutenFree);
         DetailServings.setText("Serves: " + recipeServings);
 
-        TextView DetailURL = findViewById(R.id.DetailURL);
+        TextView DetailURL = findViewById(R.id.dairyFree);
         DetailURL.setText("View Recipe: \n" + recipeURL + "\n");
 
         TextView DetailNutrition = findViewById(R.id.DetailNutrition);
