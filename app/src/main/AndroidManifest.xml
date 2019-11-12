@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Title"></activity>
+        <activity android:name=".model.stopwatch"></activity>
+        <activity android:name=".Title" />
         <activity android:name=".Website" />
         <activity android:name=".Score" />
         <activity android:name=".Welcome">
