@@ -75,31 +75,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        go1 = view.findViewById(R.id.go1);
-        go1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Score.class);
-                startActivity(intent);
-            }
-        });
-        go2 = view.findViewById(R.id.go2);
-        go2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Website.class);
-                startActivity(intent);
-            }
-        });
-        go3 = view.findViewById(R.id.go3);
-        go3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Title.class);
-                startActivity(intent);
-            }
-        });
-        // Inflate the layout for this fragment
+
         return view;
     }
 
