@@ -2,6 +2,7 @@ package com.example.infs3634assignment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
@@ -63,8 +64,10 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
                         "Fat: " + amount3 + " g" + "\n" +
                         "Carbohydrates: " + amount4 + " g");
 
-        TextView DetailTitle = findViewById(R.id.DetailTitle);
-        DetailTitle.setText(recipeTitle);
+        ConstraintLayout detailname = findViewById(R.id.Detail);
+        TextView titlename = detailname.findViewById(R.id.textView8);
+        titlename.setText(recipeTitle);
+
 
         ImageView DetailImage = findViewById(R.id.DetailImage);
         Glide.with(DetailImage.getContext()).load(recipeImage).into(DetailImage);
