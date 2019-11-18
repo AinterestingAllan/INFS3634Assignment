@@ -1,13 +1,13 @@
-package com.example.infs3634assignment;
+package com.example.infs3634assignment.model;
 
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
 import android.widget.Chronometer;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.example.infs3634assignment.R;
 
-public class stopwatch extends AppCompatActivity {
+public class stopwatch {
     private Chronometer chronometer;
     private long pauseOffset;
     private boolean running;
