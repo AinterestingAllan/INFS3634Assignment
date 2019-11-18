@@ -21,11 +21,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.infs3634assignment.model.MyResponse;
-import com.example.infs3634assignment.model.Result;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 /**
