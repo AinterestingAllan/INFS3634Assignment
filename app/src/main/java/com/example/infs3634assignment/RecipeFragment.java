@@ -107,7 +107,6 @@ public class RecipeFragment extends Fragment {
                 // response = JSON string, so you can do parsing with Gson here
                 MyResponse myResponse = new Gson().fromJson(response,
                         MyResponse.class);
-                System.out.println(response);
                 List<Result> data = myResponse.getResults();
 
                 RecyclerView fRecipeList = view.findViewById(R.id.fRecipeList);

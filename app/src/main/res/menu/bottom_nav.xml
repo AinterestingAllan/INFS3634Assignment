@@ -7,9 +7,18 @@
         android:title="Recipes" />
 
     <item
-        android:id="@+id/quizicon"
+        android:id="@+id/inProgress"
         android:icon="@drawable/quiz"
-        android:title="Quizzes" />
+        android:title="inProgress" />
+<!--    <item-->
+<!--        android:id="@+id/inProgress"-->
+
+<!--        android:title="InProgress" />-->
+<!--    <item-->
+<!--        android:id="@+id/history"-->
+<!--        -->
+<!--        android:title="History" />-->
+
     <item
         android:id="@+id/profileicon"
         android:icon="@drawable/user"
