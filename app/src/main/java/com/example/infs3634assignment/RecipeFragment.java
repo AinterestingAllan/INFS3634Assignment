@@ -103,8 +103,6 @@ public class RecipeFragment extends Fragment {
         String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
                 "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
                 "true&number=2&apiKey=5e7e568d86c8429699fe393d895406e6";
-        System.out.println("good");
-
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -112,7 +110,6 @@ public class RecipeFragment extends Fragment {
                 // response = JSON string, so you can do parsing with Gson here
                 MyResponse myResponse = new Gson().fromJson(response,
                         MyResponse.class);
-                System.out.println(response);
                 List<Result> data = myResponse.getResults();
 
                 RecyclerView fRecipeList = view.findViewById(R.id.fRecipeList);
