@@ -126,6 +126,11 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
             public void onClick(View v) {
                 Intent i = new Intent(DetailRecipe.this, Quiz.class);
                 startActivity(i);
+            }
+        });
+
+
+
     }
 
     @Override
