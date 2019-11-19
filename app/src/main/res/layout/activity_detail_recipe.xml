@@ -21,6 +21,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <include
+                android:id="@+id/Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/chunk"
+
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="-1dp"></include>
+
             <ImageView
                 android:id="@+id/DetailImage"
                 android:layout_width="match_parent"
