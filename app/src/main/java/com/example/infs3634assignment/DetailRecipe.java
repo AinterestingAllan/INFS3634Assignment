@@ -18,9 +18,8 @@ import com.example.infs3634assignment.model.stopwatch;
 import java.util.ArrayList;
 
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
-        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
- {
-     public Button button;
+        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener {
+    public Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +29,15 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
 
         // Grab intent from Recipe List and set all views in Detail Recipe.
         Bundle b = getIntent().getExtras();
-        String receivingTitle = b.getString("recipeTitle");
+        final String receivingTitle = b.getString("recipeTitle");
         String receivingURL = b.getString("recipeURL");
         String receivingImage = b.getString("recipeImage");
-        ArrayList<String> recipeNutrition = b.getStringArrayList("recipeNutrition");
+        final ArrayList<String> recipeNutrition = b.getStringArrayList("recipeNutrition");
         String healthRank = b.getString("healthRank");
         String preM = b.getString("preM");
         String cookM = b.getString("cookM");
-        String gluten = b.getString("gluten");
-        String dairy = b.getString("dairy");
+        final String gluten = b.getString("gluten");
+        final String dairy = b.getString("dairy");
 
         ImageView detail_image = findViewById(R.id.detail_image);
         TextView detail_url = findViewById(R.id.detail_url);
@@ -52,12 +51,12 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         TextView nutrition3 = findViewById(R.id.nutrition3);
         TextView nutrition4 = findViewById(R.id.nutrition4);
 
-        detail_url.setText("By: "+receivingURL);
-        detail_hr.setText("The health rank: "+healthRank);
-        detail_preM.setText("Prepare time: "+preM);
-        detail_cookM.setText("Cooking time: "+cookM);
-        detail_gluten.setText("Gluten free: "+gluten);
-        detail_dairy.setText("Dairy free: "+dairy);
+        detail_url.setText("By: " + receivingURL);
+        detail_hr.setText("The health rank: " + healthRank);
+        detail_preM.setText("Prepare time: " + preM);
+        detail_cookM.setText("Cooking time: " + cookM);
+        detail_gluten.setText("Gluten free: " + gluten);
+        detail_dairy.setText("Dairy free: " + dairy);
         nutrition1.setText(recipeNutrition.get(0));
         nutrition2.setText(recipeNutrition.get(1));
         nutrition3.setText(recipeNutrition.get(2));
@@ -125,10 +124,18 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DetailRecipe.this, Quiz.class);
+                Bundle b = new Bundle();
+                b.putString("quizTitle", receivingTitle);
+                b.putString("quizGluten", gluten);
+                b.putString("quizDairy", dairy);
+                b.putString("quizCalories", recipeNutrition.get(0));
+                b.putString("quizProtein", recipeNutrition.get(1));
+                b.putString("quizFat", recipeNutrition.get(2));
+                b.putString("quizCarbs", recipeNutrition.get(3));
+                i.putExtras(b);
                 startActivity(i);
             }
         });
-
 
 
     }
