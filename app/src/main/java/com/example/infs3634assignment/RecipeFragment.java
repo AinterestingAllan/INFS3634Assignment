@@ -92,14 +92,14 @@ public class RecipeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_recipe, container, false);
+        final View view = inflater.inflate(R.layout.fragment_recipe, container, false);
         TextView fName = view.findViewById(R.id.fTitle);
         fName.setText(this.recipeName);
 
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
                 "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
-                "true&number=10&apiKey=5e7e568d86c8429699fe393d895406e6";
+                "true&number=2&apiKey=5e7e568d86c8429699fe393d895406e6";
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -109,7 +109,7 @@ public class RecipeFragment extends Fragment {
                         MyResponse.class);
                 List<Result> data = myResponse.getResults();
 
-                RecyclerView fRecipeList = getActivity().findViewById(R.id.fRecipeList);
+                RecyclerView fRecipeList = view.findViewById(R.id.fRecipeList);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
                 fRecipeList.setLayoutManager(linearLayoutManager);
 
