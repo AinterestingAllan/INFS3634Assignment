@@ -18,6 +18,8 @@ import com.example.infs3634assignment.model.Result;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
 
     private List<Result> mRecipe;
