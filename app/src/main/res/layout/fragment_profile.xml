@@ -21,7 +21,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="51dp"
         android:src="@drawable/user"
+        app:layout_constraintBottom_toTopOf="@+id/quiz_score_image"
+        app:layout_constraintEnd_toStartOf="@+id/name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Profile" />
 
@@ -32,8 +35,13 @@
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:textSize="16sp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginRight="121dp"
+        android:layout_marginBottom="30dp"
         android:text="Name: Ann"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user"
         app:layout_constraintTop_toBottomOf="@+id/Profile" />
 
@@ -43,9 +51,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
         android:text="E-mail: ab.c@gmail.com"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -55,9 +66,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
         android:text="ID: BB"
         android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
@@ -70,7 +84,9 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/quiz"
         app:layout_constraintBottom_toTopOf="@+id/health_score_image"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/quiz_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
         android:id="@+id/quiz_score"
@@ -78,11 +94,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
         android:layout_marginBottom="44dp"
         android:text="Quiz Score:"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/health_score"
-        app:layout_constraintStart_toEndOf="@+id/quiz_score_image" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/quiz_score_image"
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
     <TextView
         android:id="@+id/health_score"
@@ -94,7 +115,8 @@
         android:text="Health Score:"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/time_score"
-        app:layout_constraintStart_toEndOf="@+id/health_score_image" />
+        app:layout_constraintStart_toEndOf="@+id/health_score_image"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_score" />
 
     <TextView
         android:id="@+id/time_score"
@@ -102,35 +124,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:layout_marginLeft="29dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="136dp"
         android:text="Time Score:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/time_score_image" />
-
-    <TextView
-        android:id="@+id/quiz_score1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="40dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/health_score"
-        app:layout_constraintStart_toEndOf="@+id/quiz_score" />
-
-    <TextView
-        android:id="@+id/health_score1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginBottom="208dp"
-        android:text="TextView"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/health_score" />
+        app:layout_constraintEnd_toStartOf="@+id/time_score_image2"
+        app:layout_constraintStart_toEndOf="@+id/time_score_image"
+        app:layout_constraintTop_toBottomOf="@+id/health_score" />
 
     <ImageView
         android:id="@+id/health_score_image"
@@ -141,18 +143,23 @@
         android:layout_marginBottom="20dp"
         android:src="@drawable/whisk"
         app:layout_constraintBottom_toTopOf="@+id/time_score_image"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/health_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quiz_score_image" />
 
     <ImageView
         android:id="@+id/time_score_image"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="124dp"
         android:src="@android:drawable/ic_lock_idle_alarm"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/time_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/health_score_image" />
 
     <ImageView
         android:id="@+id/time_score_image2"
@@ -160,10 +167,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
         android:layout_marginBottom="5dp"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toTopOf="@+id/time_score_name"
-        app:layout_constraintStart_toEndOf="@+id/time_score" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time_score"
+        app:layout_constraintTop_toBottomOf="@+id/id" />
 
     <TextView
         android:id="@+id/time_score_name"
@@ -171,10 +183,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="245dp"
         android:layout_marginLeft="245dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginRight="107dp"
         android:layout_marginBottom="80dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_score_image2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

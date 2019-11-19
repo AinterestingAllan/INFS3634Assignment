@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.infs3634assignment.model.Result;
 import com.example.infs3634assignment.model.stopwatch;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_recipe);
+
 
         // Grab intent from Recipe List and set all views in Detail Recipe.
         Bundle b = getIntent().getExtras();
@@ -109,6 +111,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
 //        DetailNutrition.setText(builder.toString());
 
         button = findViewById(R.id.detail_start);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +120,12 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
             }
         });
 
+        Button quizbutton = findViewById(R.id.Quiz);
+        quizbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailRecipe.this, Quiz.class);
+                startActivity(i);
     }
 
     @Override

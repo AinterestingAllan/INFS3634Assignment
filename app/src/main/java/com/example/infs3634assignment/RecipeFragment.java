@@ -2,6 +2,7 @@ package com.example.infs3634assignment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -95,6 +97,7 @@ public class RecipeFragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_recipe, container, false);
         TextView fName = view.findViewById(R.id.fTitle);
         fName.setText(this.recipeName);
+
 
 
         String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
