@@ -4,11 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -66,7 +69,13 @@ public class QuizMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quiz_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_quiz_menu, container, false);
+        ConstraintLayout quiz = view.findViewById(R.id.Quiz);
+        TextView quiztitle = quiz.findViewById(R.id.textView8);
+        quiztitle.setText("Quiz");
+        ImageView quizimage = quiz.findViewById(R.id.logo);
+        quizimage.setImageResource(R.drawable.ketofirstlogo);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

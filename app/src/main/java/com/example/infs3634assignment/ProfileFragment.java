@@ -84,6 +84,8 @@ public class ProfileFragment extends Fragment {
         ConstraintLayout profile = view.findViewById(R.id.Profile);
         TextView titlename = profile.findViewById(R.id.textView8);
         titlename.setText("Profile");
+        ImageView image = profile.findViewById(R.id.logo);
+        image.setImageResource(R.drawable.ketofirstlogo);
 
 
 

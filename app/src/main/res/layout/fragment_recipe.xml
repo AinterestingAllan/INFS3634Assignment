@@ -27,12 +27,6 @@
             android:layout_marginTop="10sp"
             android:layout_gravity="center" />
 
-        <Button
-            android:id="@+id/quiz"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quiz" />
-
         <TextView
             android:id="@+id/fTitle"
             android:layout_width="match_parent"
@@ -57,6 +51,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fTitle" />
+
+        <Button
+            android:id="@+id/quiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz" />
 
     </LinearLayout>
 

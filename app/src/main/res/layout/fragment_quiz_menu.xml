@@ -9,6 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <include
+            android:id="@+id/Quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/chunk"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="-1dp"></include>
 
         <TextView
             android:id="@+id/textView"
