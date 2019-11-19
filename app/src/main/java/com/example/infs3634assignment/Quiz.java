@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,10 +35,21 @@ public class Quiz extends AppCompatActivity {
         Q1Question.setText("How many carbohydrates are in " + quizTitle);
 
         RadioGroup Q1Radio = Q1.findViewById(R.id.Q1Radio);
-        RadioButton Q1B1 = Q1Radio.findViewById(R.id.radioButton1);
-        RadioButton Q1B2 = Q1Radio.findViewById(R.id.radioButton2);
+        final RadioButton Q1B1 = Q1Radio.findViewById(R.id.radioButton1);
+        final RadioButton Q1B2 = Q1Radio.findViewById(R.id.radioButton2);
         Q1B1.setText(quizCarbs.substring(quizCarbs.length() - 9)); //correct
         Q1B2.setText(quizProtein.substring(quizProtein.length() - 9));
+        final TextView checkAnswer = Q1.findViewById(R.id.checkAnswar);
+        Q1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Q1B1.isChecked()){
+                    checkAnswer.setText("Correct!");
+                }else{
+                    checkAnswer.setText("Wrong!");
+                }
+            }
+        });
 
         // Question 2
         LinearLayout Q2 = linearLayout1.findViewById(R.id.Q2Layout);
@@ -46,9 +58,20 @@ public class Quiz extends AppCompatActivity {
 
         RadioGroup Q2Radio = Q2.findViewById(R.id.Q1Radio);
         RadioButton Q2B1 = Q2Radio.findViewById(R.id.radioButton1);
-        RadioButton Q2B2 = Q2Radio.findViewById(R.id.radioButton2);
+        final RadioButton Q2B2 = Q2Radio.findViewById(R.id.radioButton2);
         Q2B1.setText(quizFat.substring(quizFat.length() - 9));
         Q2B2.setText(quizProtein.substring(quizProtein.length() - 9)); //correct
+        final TextView checkAnswer2 = Q2.findViewById(R.id.checkAnswar);
+        Q2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Q2B2.isChecked()){
+                    checkAnswer.setText("Correct!");
+                }else{
+                    checkAnswer.setText("Wrong!");
+                }
+            }
+        });
 
         // Question 3
         LinearLayout Q3 = linearLayout1.findViewById(R.id.Q3Layout);
@@ -56,10 +79,23 @@ public class Quiz extends AppCompatActivity {
         Q3Question.setText("How many fats are in " + quizTitle);
 
         RadioGroup Q3Radio = Q3.findViewById(R.id.Q1Radio);
-        RadioButton Q3B1 = Q3Radio.findViewById(R.id.radioButton1);
+        final RadioButton Q3B1 = Q3Radio.findViewById(R.id.radioButton1);
         RadioButton Q3B2 = Q3Radio.findViewById(R.id.radioButton2);
         Q3B1.setText(quizFat.substring(quizFat.length() - 9)); //correct
         Q3B2.setText(quizCarbs.substring(quizCarbs.length() - 9));
+        final TextView checkAnswer3 = Q3.findViewById(R.id.checkAnswar);
+        Q3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Q3B1.isChecked()){
+                    checkAnswer.setText("Correct!");
+                }else{
+                    checkAnswer.setText("Wrong!");
+                }
+            }
+        });
+
+
 
         // Question 4
         LinearLayout Q4 = linearLayout1.findViewById(R.id.Q4Layout);
@@ -67,12 +103,24 @@ public class Quiz extends AppCompatActivity {
         Q4Question.setText("Is " + quizTitle + "gluten free?");
 
         RadioGroup Q4Radio = Q4.findViewById(R.id.Q1Radio);
-        RadioButton Q4B1 = Q4Radio.findViewById(R.id.radioButton1);
+        final RadioButton Q4B1 = Q4Radio.findViewById(R.id.radioButton1);
         RadioButton Q4B2 = Q4Radio.findViewById(R.id.radioButton2);
         Q4B1.setText(quizGluten); //correct
         Boolean correctGluten = Boolean.parseBoolean(quizGluten);
         Boolean wrongGluten = !correctGluten;
         Q4B2.setText(wrongGluten.toString());
+        final TextView checkAnswer4 = Q4.findViewById(R.id.checkAnswar);
+        Q4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Q4B1.isChecked()){
+                    checkAnswer.setText("Correct!");
+                }else{
+                    checkAnswer.setText("Wrong!");
+                }
+            }
+        });
+
 
         // Question 5
         LinearLayout Q5 = linearLayout1.findViewById(R.id.Q5Layout);
@@ -80,13 +128,25 @@ public class Quiz extends AppCompatActivity {
         Q5Question.setText("Is " + quizTitle + " dairy free?");
 
         RadioGroup Q5Radio = Q5.findViewById(R.id.Q1Radio);
-        RadioButton Q5B1 = Q5Radio.findViewById(R.id.radioButton1);
+        final RadioButton Q5B1 = Q5Radio.findViewById(R.id.radioButton1);
         RadioButton Q5B2 = Q5Radio.findViewById(R.id.radioButton2);
 
         Q5B1.setText(quizDairy); //correct
         Boolean correctDairy = Boolean.parseBoolean(quizDairy);
         Boolean wrongDairy = !correctDairy;
         Q5B2.setText(wrongDairy.toString());
+        final TextView checkAnswer5 = Q5.findViewById(R.id.checkAnswar);
+        Q5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Q5B1.isChecked()){
+                    checkAnswer.setText("Correct!");
+                }else{
+                    checkAnswer.setText("Wrong!");
+                }
+            }
+        });
+
 
 
     }
