@@ -96,10 +96,12 @@ public class RecipeFragment extends Fragment {
         TextView fName = view.findViewById(R.id.fTitle);
         fName.setText(this.recipeName);
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+
         String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
                 "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
                 "true&number=2&apiKey=5e7e568d86c8429699fe393d895406e6";
+        System.out.println("good");
+
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -107,12 +109,12 @@ public class RecipeFragment extends Fragment {
                 // response = JSON string, so you can do parsing with Gson here
                 MyResponse myResponse = new Gson().fromJson(response,
                         MyResponse.class);
+                System.out.println(response);
                 List<Result> data = myResponse.getResults();
 
                 RecyclerView fRecipeList = view.findViewById(R.id.fRecipeList);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
                 fRecipeList.setLayoutManager(linearLayoutManager);
-
 
                 MAdapter recyclerViewAdapter = new MAdapter(getContext(),data);
                 fRecipeList.setAdapter(recyclerViewAdapter);
@@ -130,6 +132,7 @@ public class RecipeFragment extends Fragment {
 
         StringRequest stringRequest =
                 new StringRequest(Request.Method.GET, url, responseListener, errorListener);
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(stringRequest);
 
         return view;
