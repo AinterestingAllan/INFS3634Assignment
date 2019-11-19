@@ -22,57 +22,59 @@ public class Quiz extends AppCompatActivity {
         // Question 1
         LinearLayout Q1 = linearLayout1.findViewById(R.id.Q1Layout);
         TextView Q1Question = Q1.findViewById(R.id.Q1Question);
-        Q1Question.setText("Question1");
+        Q1Question.setText("How many carbohydrates are in " + receivingTitle);
 
         RadioGroup Q1Radio = Q1.findViewById(R.id.Q1Radio);
         RadioButton Q1B1 = Q1Radio.findViewById(R.id.radioButton1);
         RadioButton Q1B2 = Q1Radio.findViewById(R.id.radioButton2);
-        Q1B1.setText("Question1 Answer1");
-        Q1B2.setText("Question1 Answer2");
+        Q1B1.setText(receivingCarbs);
+        Q1B2.setText(receivingProtein);
 
         // Question 2
         LinearLayout Q2 = linearLayout1.findViewById(R.id.Q2Layout);
         TextView Q2Question = Q2.findViewById(R.id.Q1Question);
-        Q2Question.setText("Question2");
+        Q2Question.setText("How many proteins are in " + receivingTitle);
 
         RadioGroup Q2Radio = Q2.findViewById(R.id.Q1Radio);
         RadioButton Q2B1 = Q2Radio.findViewById(R.id.radioButton1);
         RadioButton Q2B2 = Q2Radio.findViewById(R.id.radioButton2);
-        Q2B1.setText("Question2 Answer1");
-        Q2B2.setText("Question2 Answer2");
+        Q2B1.setText(receivingCarbs);
+        Q2B2.setText(receivingProtein);
 
         // Question 3
         LinearLayout Q3 = linearLayout1.findViewById(R.id.Q3Layout);
         TextView Q3Question = Q3.findViewById(R.id.Q1Question);
-        Q3Question.setText("Question3");
+        Q3Question.setText("How many fats are in " + receivingTitle);
 
         RadioGroup Q3Radio = Q3.findViewById(R.id.Q1Radio);
         RadioButton Q3B1 = Q3Radio.findViewById(R.id.radioButton1);
         RadioButton Q3B2 = Q3Radio.findViewById(R.id.radioButton2);
-        Q3B1.setText("Question3 Answer1");
-        Q3B2.setText("Question3 Answer2");
+        Q3B1.setText(receivingFat);
+        Q3B2.setText(receivingCalories);
 
         // Question 4
         LinearLayout Q4 = linearLayout1.findViewById(R.id.Q4Layout);
         TextView Q4Question = Q4.findViewById(R.id.Q1Question);
-        Q4Question.setText("Question4");
+        Q4Question.setText("Is " + receivingTitle + "gluten free?");
 
         RadioGroup Q4Radio = Q4.findViewById(R.id.Q1Radio);
         RadioButton Q4B1 = Q4Radio.findViewById(R.id.radioButton1);
         RadioButton Q4B2 = Q4Radio.findViewById(R.id.radioButton2);
-        Q4B1.setText("Question4 Answer1");
-        Q4B2.setText("Question4 Answer2");
+        Q4B1.setText(receivingGluten.toString());
+        Boolean wrongGluten = !receivingGluten;
+        Q4B2.setText(wrongGluten.toString());
 
         // Question 5
         LinearLayout Q5 = linearLayout1.findViewById(R.id.Q5Layout);
         TextView Q5Question = Q5.findViewById(R.id.Q1Question);
-        Q5Question.setText("Question5");
+        Q5Question.setText("Is " + receivingTitle + " dairy free?");
 
         RadioGroup Q5Radio = Q5.findViewById(R.id.Q1Radio);
         RadioButton Q5B1 = Q5Radio.findViewById(R.id.radioButton1);
         RadioButton Q5B2 = Q5Radio.findViewById(R.id.radioButton2);
-        Q5B1.setText("Question5 Answer1");
-        Q5B2.setText("Question5 Answer2");
+        Q5B1.setText(receivingDairy.toString());
+        Boolean wrongDairy = !receivingDairy;
+        Q5B2.setText(wrongDairy.toString());
 
 
     }
