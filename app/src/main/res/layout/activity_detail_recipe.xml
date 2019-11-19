@@ -23,17 +23,17 @@
 
             <include
                 android:id="@+id/Detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 layout="@layout/chunk"
+                android:layout_width="wrap_content"
+                android:layout_height="190dp"
 
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="-1dp"></include>
 
             <ImageView
-                android:id="@+id/DetailImage"
+                android:id="@+id/detail_image"
                 android:layout_width="match_parent"
-                android:layout_height="150sp"
+                android:layout_height="100dp"
                 android:layout_margin="0sp"
                 android:scaleType="centerCrop"
                 android:text="Recipe Image"
@@ -43,7 +43,13 @@
 
 
             <TextView
-                android:id="@+id/HealthRank"
+                android:id="@+id/detail_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/detail_hr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
@@ -53,10 +59,10 @@
                 android:textStyle="italic"
                 app:fontFamily="@font/hind_light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/DetailImage"></TextView>
+                app:layout_constraintTop_toBottomOf="@id/detail_image"></TextView>
 
             <TextView
-                android:id="@+id/PreparationM"
+                android:id="@+id/detail_preM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
@@ -65,16 +71,16 @@
                 android:textSize="15sp"
                 app:fontFamily="@font/hind_light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/HealthRank"></TextView>
+                app:layout_constraintTop_toBottomOf="@id/detail_hr"></TextView>
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/detail_cookM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cooking Minutes" />
 
             <TextView
-                android:id="@+id/glutenFree"
+                android:id="@+id/detail_gluten"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
@@ -82,10 +88,10 @@
                 android:textSize="15sp"
                 app:fontFamily="@font/hind_light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/PreparationM"></TextView>
+                app:layout_constraintTop_toBottomOf="@id/detail_preM"></TextView>
 
             <TextView
-                android:id="@+id/dairyFree"
+                android:id="@+id/detail_dairy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5sp"
@@ -94,9 +100,9 @@
                 android:textSize="15sp"
                 app:fontFamily="@font/hind_light"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/glutenFree"></TextView>
+                app:layout_constraintTop_toBottomOf="@id/detail_gluten"></TextView>
 
-        <TextView
+            <TextView
             android:id="@+id/DetailNutritionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,43 +112,44 @@
             android:textStyle="bold"
             app:fontFamily="@font/hind_light"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dairyFree"></TextView>
-
-        <TextView
-            android:id="@+id/DetailNutrition"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5sp"
-            android:text="Nutrition"
-            android:textSize="15sp"
-            app:fontFamily="@font/hind_light"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/DetailNutritionTitle"></TextView>
+            app:layout_constraintTop_toBottomOf="@id/detail_dairy"></TextView>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/nutrition1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/nutrition2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/nutrition3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/nutrition4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/detail_start"
                 android:layout_width="114dp"
                 android:layout_height="wrap_content"
                 android:text="Start"
                 android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/Quiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quiz" />
 
         </LinearLayout>
     </ScrollView>

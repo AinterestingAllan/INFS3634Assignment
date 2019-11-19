@@ -15,13 +15,13 @@
         android:layout_marginRight="182dp"
         android:layout_marginBottom="48dp"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/detail_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"></Chronometer>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/detail_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -42,7 +42,7 @@
         android:onClick="pauseChronometer"
         android:text="Pause"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"></Button>
+        app:layout_constraintStart_toEndOf="@+id/detail_start"></Button>
 
     <Button
         android:layout_width="wrap_content"

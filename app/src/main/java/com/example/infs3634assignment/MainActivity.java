@@ -42,7 +42,7 @@ public class MainActivity extends FragmentActivity
                     case R.id.recipeicon:
                         switchToFragment1();
                         break;
-                    case R.id.quizicon:
+                    case R.id.inProgress:
                         switchToFragment2();
                         break;
                     case R.id.profileicon:
