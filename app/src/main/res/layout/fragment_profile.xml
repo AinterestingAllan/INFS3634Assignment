@@ -192,5 +192,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_score_image2" />
 
+    <Button
+        android:id="@+id/viewHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewHistory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintVertical_bias="0.295" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
