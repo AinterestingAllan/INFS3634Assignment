@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class Quiz extends AppCompatActivity {
 
     @Override
@@ -28,6 +30,8 @@ public class Quiz extends AppCompatActivity {
 
 
         LinearLayout linearLayout1 = findViewById(R.id.QuizLayout);
+        final int[] result = {0};
+
 
         // Question 1
         LinearLayout Q1 = linearLayout1.findViewById(R.id.Q1Layout);
@@ -45,6 +49,7 @@ public class Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(Q1B1.isChecked()){
                     checkAnswer.setText("Correct!");
+                    result[0]++;
                 }else{
                     checkAnswer.setText("Wrong!");
                 }
@@ -78,6 +83,7 @@ public class Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(Q2B2.isChecked()){
                     checkAnswer2.setText("Correct!");
+                    result[0]++;
                 }else{
                     checkAnswer2.setText("Wrong!");
                 }
@@ -111,6 +117,7 @@ public class Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(Q3B1.isChecked()){
                     checkAnswer3.setText("Correct!");
+                    result[0]++;
                 }else{
                     checkAnswer3.setText("Wrong!");
                 }
@@ -150,6 +157,7 @@ public class Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(Q4B1.isChecked()){
                     checkAnswer4.setText("Correct!");
+                    result[0]++;
                 }else{
                     checkAnswer4.setText("Wrong!");
                 }
@@ -187,6 +195,7 @@ public class Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(Q5B1.isChecked()){
                     checkAnswer5.setText("Correct!");
+                    result[0]++;
                 }else{
                     checkAnswer5.setText("Wrong!");
                 }
@@ -205,6 +214,12 @@ public class Quiz extends AppCompatActivity {
         });
 
 
+        TextView score = linearLayout1.findViewById(R.id.score);
+        String resultArray[] = new String[result.length];
+        for(int i=0;i<result.length;i++){
+            resultArray[i] = String.valueOf(result[i]);
+        }
+        score.setText(Arrays.toString(resultArray));
 
     }
 }
