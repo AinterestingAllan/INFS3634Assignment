@@ -10,7 +10,7 @@
             android:text="Question">
         </TextView>
 
-        <RadioGroup
+    <RadioGroup
             android:id="@+id/Q1Radio"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
@@ -27,11 +27,12 @@
                 android:layout_height="wrap_content"
                 android:text="A2" />
 
-            <TextView
-                android:id="@+id/checkAnswar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </RadioGroup>
+        <TextView
+            android:id="@+id/checkAnswar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RadioGroup>
 
 
 
