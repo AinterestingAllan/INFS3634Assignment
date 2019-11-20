@@ -1,8 +1,7 @@
-package com.example.infs3634assignment;
+package com.example.infs3634assignment.ProjectFragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -22,12 +20,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.infs3634assignment.ProjectAdapter.MAdapter;
+import com.example.infs3634assignment.R;
 import com.example.infs3634assignment.model.MyResponse;
 import com.example.infs3634assignment.model.Result;
 import com.google.gson.Gson;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 

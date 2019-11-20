@@ -2,6 +2,8 @@ package com.example.infs3634assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.infs3634assignment.ProjectAdapter.StepAdapter;
+import com.example.infs3634assignment.ProjectFragments.ProfileFragment;
+import com.example.infs3634assignment.ProjectFragments.QuizMenuFragment;
+import com.example.infs3634assignment.ProjectFragments.RecipeMenuFragment;
 
 import java.util.ArrayList;
 
@@ -88,6 +94,14 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         ConstraintLayout detailname = findViewById(R.id.Detail);
         TextView titlename = detailname.findViewById(R.id.textView8);
         titlename.setText(receivingTitle);
+
+        RecyclerView detail_rv = findViewById(R.id.detail_rv);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        detail_rv.setLayoutManager(linearLayoutManager);
+        StepAdapter stepAdapter = new StepAdapter();
+        stepAdapter.setData(Data.nowDetail.getAnalyzedInstructions().get(0).getSteps());
+        detail_rv.setAdapter(stepAdapter);
+
 //
 //
 //        ImageView DetailImage = findViewById(R.id.DetailImage);

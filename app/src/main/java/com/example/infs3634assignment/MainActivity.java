@@ -1,7 +1,6 @@
 package com.example.infs3634assignment;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -10,16 +9,18 @@ import androidx.fragment.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
 
+import com.example.infs3634assignment.ProjectFragments.InProgress;
+import com.example.infs3634assignment.ProjectFragments.ProfileFragment;
+import com.example.infs3634assignment.ProjectFragments.QuizMenuFragment;
+import com.example.infs3634assignment.ProjectFragments.RecipeFragment;
+import com.example.infs3634assignment.ProjectFragments.RecipeMenuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends FragmentActivity
         implements QuizMenuFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener,
-        FragmentSwitcher,RecipeFragment.OnFragmentInteractionListener,
+        FragmentSwitcher, RecipeFragment.OnFragmentInteractionListener,
         InProgress.OnFragmentInteractionListener {
 
 

@@ -1,4 +1,4 @@
-package com.example.infs3634assignment;
+package com.example.infs3634assignment.ProjectAdapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.infs3634assignment.Data;
+import com.example.infs3634assignment.DetailRecipe;
+import com.example.infs3634assignment.R;
 import com.example.infs3634assignment.model.Nutrition;
 import com.example.infs3634assignment.model.Result;
 
@@ -69,10 +72,9 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
                 for (Nutrition n : recipe.getNutrition()) {
                     nutritionAy.add(n.getTitle()+" "+n.getAmount()+" "+n.getUnit());
                 }
-
                 b.putStringArrayList("recipeNutrition", nutritionAy);
 
-
+                Data.nowDetail = recipe;
                 i.putExtras(b);
                 mContext.startActivity(i);
 

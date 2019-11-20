@@ -1,4 +1,4 @@
-package com.example.infs3634assignment;
+package com.example.infs3634assignment.ProjectFragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
+
+import com.example.infs3634assignment.R;
 
 
 /**

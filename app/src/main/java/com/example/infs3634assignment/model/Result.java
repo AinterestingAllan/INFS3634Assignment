@@ -14,12 +14,14 @@ public class Result {
     private String cookingMinutes;
     private String sourceUrl;
     private int healthScore;
+    private List<AnalyzedInstruction> analyzedInstructions;
     private List<Nutrition> nutrition;
 
     public Result(String id, String title, String image,
                   Boolean glutenFree, Boolean dairyFree, Boolean cheap,
                   Boolean lowFodmap, String preparationMinutes, String cookingMinutes,
-                  String sourceUrl, int healthScore, List<Nutrition> nutrition) {
+                  String sourceUrl, int healthScore, List<Nutrition> nutrition,
+                  List<AnalyzedInstruction> analyzedInstructions) {
         this.id = id;
         this.title = title;
         this.image = image;
@@ -32,6 +34,7 @@ public class Result {
         this.sourceUrl = sourceUrl;
         this.healthScore = healthScore;
         this.nutrition = nutrition;
+        this.analyzedInstructions = analyzedInstructions;
     }
 
     public String getId() {
@@ -128,5 +131,13 @@ public class Result {
 
     public void setNutrition(List<Nutrition> nutrition) {
         this.nutrition = nutrition;
+    }
+
+    public List<AnalyzedInstruction> getAnalyzedInstructions() {
+        return analyzedInstructions;
+    }
+
+    public void setAnalyzedInstructions(List<AnalyzedInstruction> analyzedInstructions) {
+        this.analyzedInstructions = analyzedInstructions;
     }
 }
