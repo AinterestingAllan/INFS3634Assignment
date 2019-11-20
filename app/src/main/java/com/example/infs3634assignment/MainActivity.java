@@ -12,13 +12,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends FragmentActivity
         implements QuizMenuFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener,
-        FragmentSwitcher,RecipeFragment.OnFragmentInteractionListener {
+        FragmentSwitcher,RecipeFragment.OnFragmentInteractionListener,
+        InProgress.OnFragmentInteractionListener {
 
 
         @Override
@@ -26,12 +28,23 @@ public class MainActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final RecipeMenuFragment recipeMenuFragment = new RecipeMenuFragment();
+        final InProgress inProgress = new InProgress();
+        final ProfileFragment profileFragment = new ProfileFragment();
+
         //Fragment Manager
-            RecipeMenuFragment fragment = new RecipeMenuFragment();
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            final RecipeMenuFragment fragment = new RecipeMenuFragment();
+            final FragmentManager fragmentManager = getSupportFragmentManager();
             final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragmentSlot, fragment);
+            fragmentTransaction.add(R.id.fragmentSlot,recipeMenuFragment);
+            fragmentTransaction.add(R.id.fragmentSlot,inProgress);
+            fragmentTransaction.add(R.id.fragmentSlot,profileFragment);
+            fragmentTransaction.hide(inProgress);
+            fragmentTransaction.hide(profileFragment);
+            fragmentTransaction.show(recipeMenuFragment);
             fragmentTransaction.commit();
+
+            Data.nowFragment = recipeMenuFragment;
 
         // Code for bottom navigation
         final BottomNavigationView BottomNav = findViewById(R.id.BottomNav);
@@ -40,13 +53,13 @@ public class MainActivity extends FragmentActivity
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.recipeicon:
-                        switchToFragment1();
+                        switchToFragment(recipeMenuFragment,fragmentManager);
                         break;
                     case R.id.inProgress:
-                        switchToFragment2();
+                        switchToFragment(inProgress,fragmentManager);
                         break;
                     case R.id.profileicon:
-                        switchToFragment3();
+                        switchToFragment(profileFragment,fragmentManager);
                         break;
                 }
                 return false;
@@ -56,31 +69,53 @@ public class MainActivity extends FragmentActivity
     }
 
     // Methods for bottom navigation
-    public void switchToFragment1() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new RecipeMenuFragment()).commit();
+    public void switchToFragment(Fragment fragment, FragmentManager fragmentManager) {
+        fragmentManager.beginTransaction().hide(Data.nowFragment).commit();
+        fragmentManager.beginTransaction().show(fragment).commit();
+        Data.nowFragment = fragment;
     }
 
-    public void switchToFragment2() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new QuizMenuFragment()).commit();
-    }
-
-    public void switchToFragment3() {
-        FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.fragmentSlot, new ProfileFragment()).commit();
-    }
+//    public void switchToFragment2() {
+//        FragmentManager manager = getSupportFragmentManager();
+//        manager.beginTransaction().replace(R.id.fragmentSlot, new InProgress()).commit();
+//    }
+//
+//    public void switchToFragment3() {
+//        FragmentManager manager = getSupportFragmentManager();
+//        manager.beginTransaction().replace(R.id.fragmentSlot, new ProfileFragment()).commit();
+//    }
 
     public void onFragmentInteraction(Uri uri) {
         //you can leave it empty
     }
 
     @Override
-    public void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();;
+    public void replaceFragment(Fragment fragment, String tag) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentSlot, fragment, fragment.toString());
-        fragmentTransaction.addToBackStack(fragment.toString());
+
+        boolean exist = false;
+        for (String x : Data.recipeNameAy.keySet()) {
+            if (x.equals(tag)) {
+                exist = true;
+                break;
+            }
+        }
+
+        if (exist){
+            Fragment f = Data.recipeNameAy.get(tag);
+            fragmentTransaction.remove(f);
+            fragmentTransaction.add(R.id.fragmentSlot,fragment);
+
+        } else {
+            Data.recipeNameAy.put(tag,fragment);
+            fragmentTransaction.add(R.id.fragmentSlot,fragment);
+
+        }
+
+        fragmentTransaction.hide(Data.nowFragment);
+        Data.nowFragment = fragment;
+        fragmentTransaction.show(fragment);
         fragmentTransaction.commit();
     }
 }

@@ -12,15 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.infs3634assignment.model.Result;
-import com.example.infs3634assignment.model.stopwatch;
 
 import java.util.ArrayList;
 
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
  {
-     public Button button;
+     public Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,13 +108,13 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
 //        TextView DetailNutrition = findViewById(R.id.DetailNutrition);
 //        DetailNutrition.setText(builder.toString());
 
-        button = findViewById(R.id.detail_start);
+        startButton = findViewById(R.id.detail_start);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), stopwatch.class);
-                startActivity(intent);
+                // Intent intent = new Intent(getApplicationContext(), stopwatch.class);
+                // startActivity(intent);
             }
         });
 

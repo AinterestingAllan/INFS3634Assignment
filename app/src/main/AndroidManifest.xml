@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".Quiz"></activity>
-        <activity android:name=".model.stopwatch" />
+        <activity android:name=".stopwatch" />
         <activity android:name=".Title" />
         <activity android:name=".Website" />
         <activity android:name=".Score" />

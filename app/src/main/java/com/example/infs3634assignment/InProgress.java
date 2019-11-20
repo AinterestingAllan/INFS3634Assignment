@@ -1,32 +1,28 @@
 package com.example.infs3634assignment;
 
 import android.content.Context;
-import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.Chronometer;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link RecipeMenuFragment.OnFragmentInteractionListener} interface
+ * {@link InProgress.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link RecipeMenuFragment#newInstance} factory method to
+ * Use the {@link InProgress#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RecipeMenuFragment extends Fragment {
+public class InProgress extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,10 +31,13 @@ public class RecipeMenuFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Chronometer chronometer;
+    private long pauseOffset = 0;
+    private boolean running = false;
 
     private OnFragmentInteractionListener mListener;
 
-    public RecipeMenuFragment() {
+    public InProgress() {
         // Required empty public constructor
     }
 
@@ -48,11 +47,11 @@ public class RecipeMenuFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment RecipeMenuFragment.
+     * @return A new instance of fragment InProgress.
      */
     // TODO: Rename and change types and number of parameters
-    public static RecipeMenuFragment newInstance(String param1, String param2) {
-        RecipeMenuFragment fragment = new RecipeMenuFragment();
+    public static InProgress newInstance(String param1, String param2) {
+        InProgress fragment = new InProgress();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,55 +66,48 @@ public class RecipeMenuFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_recipe_menu, container, false);
-
-        ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
-        mexicanbutton.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
+        chronometer = view.findViewById(R.id.choronmeter1);
+        Button start = view.findViewById(R.id.time_start);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                showRecipeFragment("mexican", "url");
+                if (!running) {
+                    chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+                    chronometer.start();
+                    running = true;
+                }
             }
         });
 
-        ImageButton americanbutton = view.findViewById(R.id.AmericanButton);
-        americanbutton.setOnClickListener(new View.OnClickListener() {
+        Button pause = view.findViewById(R.id.time_pause);
+        pause.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                showRecipeFragment("american", "url");
+                if (running) {
+                    chronometer.stop();
+                    pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    running = false;
+                }
             }
         });
 
-        ImageButton italianbutton =  view.findViewById(R.id.ItalianButton);
-        italianbutton.setOnClickListener(new View.OnClickListener() {
+        Button reset = view.findViewById(R.id.time_reset);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                showRecipeFragment("italian", "url");
-            }
-        });
-
-        ImageButton chinesebutton =  view.findViewById(R.id.ChineseButton);
-        chinesebutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showRecipeFragment("chinese", "url");
-            }
-        });
-
-        ImageButton greekbutton =  view.findViewById(R.id.GreekButton);
-        greekbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showRecipeFragment("greek", "url");
-            }
-        });
-
-        ImageButton indianbutton = view.findViewById(R.id.IndianButton);
-        indianbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                showRecipeFragment("indian", "url");
+                if (running) {
+                    chronometer.stop();
+                    pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    running = false;
+                }
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                pauseOffset = 0;
             }
         });
 
@@ -160,12 +152,5 @@ public class RecipeMenuFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
-    public void showRecipeFragment(String recipeName, String url){
-        Fragment fr = new RecipeFragment(recipeName,url);
-        FragmentSwitcher fc=(FragmentSwitcher) getActivity();
-        fc.replaceFragment(fr,recipeName);
-    }
-
 
 }
