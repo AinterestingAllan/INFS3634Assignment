@@ -276,6 +276,8 @@ public class Quiz extends AppCompatActivity {
         Score s1 = new Score(id, score);
         scoreDAO.insert(s1);
 
+        Toast.makeText(this, "Congratulations! You have completed a quiz. You received " + s1.getQuizScore() + " points", Toast.LENGTH_LONG).show();
+
         finish();
     }
 

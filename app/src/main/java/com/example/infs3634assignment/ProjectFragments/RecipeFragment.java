@@ -103,7 +103,7 @@ public class RecipeFragment extends Fragment {
 
         String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + this.recipeName + "&diet=" +
                 "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
-                "true&number=10&apiKey=5e7e568d86c8429699fe393d895406e6 ";
+                "true&number=10&apiKey=729163f9193a406bad906488d2b607f9 ";
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
