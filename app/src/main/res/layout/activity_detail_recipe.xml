@@ -24,8 +24,8 @@
             <ImageView
                 android:id="@+id/detail_image"
                 android:layout_width="match_parent"
-                android:layout_height="159dp"
-                android:layout_margin="0sp"
+                android:layout_height="150dp"
+                android:layout_margin="5sp"
                 android:scaleType="centerCrop"
                 android:text="Recipe Image"
                 app:layout_constraintStart_toStartOf="parent"
@@ -33,43 +33,64 @@
                 app:srcCompat="@mipmap/ic_launcher_round"></ImageView>
 
 
-            <TextView
-                android:id="@+id/detail_url"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="5sp">
 
                 <Button
                     android:id="@+id/detail_start"
-                    android:layout_width="114dp"
+                    android:layout_width="100sp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginStart="40dp"
-                    android:text="Start"
-                    android:layout_marginLeft="40dp" />
+                    android:background="#CCFFFFFF"
+                    android:layout_marginRight="5sp"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/hind_light"
+                    android:text="Start" />
 
                 <Button
                     android:id="@+id/Quiz"
-                    android:layout_width="119dp"
+                    android:layout_width="100sp"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="100dp"
-                    android:text="Quiz"
-                    android:layout_marginLeft="100dp" />
+                    android:background="#CCFFFFFF"
+                    android:layout_marginLeft="5sp"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/hind_light"
+                    android:text="Quiz" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:gravity="center"
+                android:text="TITLE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/hind_light"
+                android:textColor="#FF0067"/>
+
+            <TextView
+                android:id="@+id/detail_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="WEBSITE"
+                android:textSize="14sp"
+                android:layout_margin="5sp"
+                app:fontFamily="@font/hind_light"
+                android:autoLink="web"/>
 
             <TextView
                 android:id="@+id/detail_hr"
                 android:layout_width="match_parent"
                 android:layout_height="18dp"
                 android:layout_margin="5sp"
-                android:text="By: "
+                android:text="The Health Rank:"
                 android:textAlignment="center"
                 android:textSize="15sp"
                 android:textStyle="italic"
@@ -78,12 +99,25 @@
                 app:layout_constraintTop_toBottomOf="@id/detail_image"></TextView>
 
             <TextView
+                android:id="@+id/detailNutritionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="30sp"
+                android:text="Details"
+                android:textColor="#FFB6C1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/hind_light"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_dairy"></TextView>
+
+            <TextView
                 android:id="@+id/detail_preM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5sp"
+                android:layout_marginLeft="5sp"
                 android:text="Preparation Minutes"
-                android:textAlignment="center"
                 android:textSize="15sp"
                 app:fontFamily="@font/hind_light"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,15 +127,16 @@
                 android:id="@+id/detail_cookM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="5sp"
                 android:textSize="15sp"
+                app:fontFamily="@font/hind_light"
                 android:text="Cooking Minutes" />
 
             <TextView
                 android:id="@+id/detail_gluten"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5sp"
+                android:layout_marginLeft="5sp"
                 android:text="GlutenFree"
                 android:textSize="15sp"
                 app:fontFamily="@font/hind_light"
@@ -112,7 +147,7 @@
                 android:id="@+id/detail_dairy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5sp"
+                android:layout_marginLeft="5sp"
                 android:autoLink="web"
                 android:text="DairyFree"
                 android:textSize="15sp"
@@ -124,8 +159,11 @@
                 android:id="@+id/DetailNutritionTitle"
                 android:layout_width="match_parent"
                 android:layout_height="27dp"
-                android:layout_margin="5sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginTop="30sp"
                 android:text="Nutritional Data"
+
+                android:textColor="#FFB6C1"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:fontFamily="@font/hind_light"
@@ -137,45 +175,55 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:text="Calories"
                 android:textSize="15sp"
-                android:text="TextView" />
+                app:fontFamily="@font/hind_light" />
 
             <TextView
                 android:id="@+id/nutrition2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:text="Protein"
                 android:textSize="15sp"
-                android:text="TextView" />
+                app:fontFamily="@font/hind_light" />
 
             <TextView
                 android:id="@+id/nutrition3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:text="Fat"
                 android:textSize="15sp"
-                android:text="TextView" />
+                app:fontFamily="@font/hind_light" />
 
             <TextView
                 android:id="@+id/nutrition4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:text="Carbohydrates"
                 android:textSize="15sp"
-                android:text="TextView" />
+                app:fontFamily="@font/hind_light" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
                 android:gravity="center"
-                android:text="How to cook?"
-                android:textSize="24sp" />
+                android:text="How to Cook?"
+                android:textColor="#FFB6C1"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/hind_light" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/detail_rv"
+                android:layout_margin="5sp"
                 android:layout_width="match_parent"
-                android:layout_height="400dp" />
+                android:layout_height="400dp"
+                android:background="@drawable/border"/>
 
         </LinearLayout>
     </ScrollView>

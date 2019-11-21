@@ -173,10 +173,11 @@ public class InProgress extends Fragment {
                 } else {
                     // create a history and store in database
                     long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    long elapsedSeconds = (elapsedMillis / 60);
                     String userComment = comment.getText().toString();
 
                     History history = new History(Data.nowCooking.getTitle()
-                            , elapsedMillis, userComment);
+                            , elapsedSeconds, userComment);
 
                     AppDatabase db = AppDatabase.getInstance(getContext());
                     HistoryInsertAsyncTask historyInsertAsyncTask = new HistoryInsertAsyncTask();

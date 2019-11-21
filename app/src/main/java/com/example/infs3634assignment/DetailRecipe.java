@@ -49,6 +49,8 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         final String gluten = b.getString("gluten");
         final String dairy = b.getString("dairy");
 
+        TextView detail_title = findViewById(R.id.detail_title);
+
         ImageView detail_image = findViewById(R.id.detail_image);
         TextView detail_url = findViewById(R.id.detail_url);
         TextView detail_hr = findViewById(R.id.detail_hr);
@@ -61,12 +63,13 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         TextView nutrition3 = findViewById(R.id.nutrition3);
         TextView nutrition4 = findViewById(R.id.nutrition4);
 
-        detail_url.setText("By: " + receivingURL);
-        detail_hr.setText("The health rank: " + healthRank);
-        detail_preM.setText("Prepare time: " + preM);
-        detail_cookM.setText("Cooking time: " + cookM);
-        detail_gluten.setText("Gluten free: " + gluten);
-        detail_dairy.setText("Dairy free: " + dairy);
+        detail_title.setText(receivingTitle);
+        detail_url.setText(receivingURL);
+        detail_hr.setText("The Health Rank: " + healthRank);
+        detail_preM.setText("Preparation Time: " + preM + " minutes");
+        detail_cookM.setText("Cooking Time: " + cookM + " minutes");
+        detail_gluten.setText("Gluten free? " + gluten);
+        detail_dairy.setText("Dairy free? " + dairy);
         nutrition1.setText(recipeNutrition.get(0));
         nutrition2.setText(recipeNutrition.get(1));
         nutrition3.setText(recipeNutrition.get(2));
@@ -95,10 +98,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
 //                        "Protein: " + amount2 + " g" + "\n" +
 //                        "Fat: " + amount3 + " g" + "\n" +
 //                        "Carbohydrates: " + amount4 + " g");
-//
-        ConstraintLayout detailname = findViewById(R.id.Detail);
-        TextView titlename = detailname.findViewById(R.id.textView8);
-        titlename.setText(receivingTitle);
+
 
         RecyclerView detail_rv = findViewById(R.id.detail_rv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
