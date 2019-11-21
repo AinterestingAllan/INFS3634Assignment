@@ -2,6 +2,9 @@ package com.example.infs3634assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.infs3634assignment.ProjectAdapter.StepAdapter;
+import com.example.infs3634assignment.ProjectFragments.InProgress;
 import com.example.infs3634assignment.ProjectFragments.ProfileFragment;
 import com.example.infs3634assignment.ProjectFragments.QuizMenuFragment;
 import com.example.infs3634assignment.ProjectFragments.RecipeMenuFragment;
@@ -24,6 +28,7 @@ import java.util.ArrayList;
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
  {
+     // go to InProgress fragment
      public Button startButton;
 
     @Override
@@ -127,6 +132,18 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Data.nowCooking = Data.nowDetail;
+                FragmentManager fragmentManager = Data.fragmentManager;
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.remove(Data.recipeNameAy.get("inProgress"));
+                InProgress inProgress = new InProgress();
+                fragmentTransaction.add(R.id.fragmentSlot,inProgress);
+                fragmentTransaction.hide(Data.nowFragment);
+                fragmentTransaction.show(inProgress);
+                Data.nowFragment=inProgress;
+                Data.recipeNameAy.put("inProgress",inProgress);
+                fragmentTransaction.commitAllowingStateLoss();
+                finish();
                 // Intent intent = new Intent(getApplicationContext(), stopwatch.class);
                 // startActivity(intent);
             }

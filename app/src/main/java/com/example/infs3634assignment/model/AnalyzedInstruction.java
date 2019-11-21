@@ -5,6 +5,7 @@ import java.util.List;
 public class AnalyzedInstruction {
     private String name;
     private List<Steps> steps;
+    private String parent_id;
 
     public AnalyzedInstruction(String name, List<Steps> steps) {
         this.name = name;

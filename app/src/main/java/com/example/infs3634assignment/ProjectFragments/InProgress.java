@@ -1,19 +1,33 @@
 package com.example.infs3634assignment.ProjectFragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Toast;
 
+import com.example.infs3634assignment.Connectivity.AppDatabase;
+import com.example.infs3634assignment.Connectivity.HistoryInsertAsyncTask;
+import com.example.infs3634assignment.Data;
+import com.example.infs3634assignment.DetailRecipe;
 import com.example.infs3634assignment.R;
+import com.example.infs3634assignment.model.Nutrition;
+import com.example.infs3634assignment.model.Result;
+import com.example.infs3634assignment.model.History;
+
+import java.util.ArrayList;
 
 
 /**
@@ -74,6 +88,14 @@ public class InProgress extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
+        TextView title = view.findViewById(R.id.progress_title);
+
+        if (Data.nowCooking == null) {
+            title.setText("No recipe");
+        }else {
+            title.setText(Data.nowCooking.getTitle());
+        }
+
         chronometer = view.findViewById(R.id.choronmeter1);
         Button start = view.findViewById(R.id.time_start);
         start.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +132,69 @@ public class InProgress extends Fragment {
                 }
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 pauseOffset = 0;
+            }
+        });
+
+        Button backToDatail = view.findViewById(R.id.backToDetail);
+        backToDatail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), DetailRecipe.class);
+                Bundle b = new Bundle();
+                final Result recipe = Data.nowCooking;
+                b.putString("recipeTitle",recipe.getTitle());
+                b.putString("recipeURL", recipe.getSourceUrl());
+                b.putString("recipeImage", recipe.getImage());
+                b.putString("healthRank", recipe.getHealthScore()+"");
+                b.putString("preM", recipe.getPreparationMinutes());
+                b.putString("cookM", recipe.getCookingMinutes());
+                b.putString("gluten", recipe.getGlutenFree()+"");
+                b.putString("dairy", recipe.getDairyFree()+"");
+
+                ArrayList<String> nutritionAy = new ArrayList<>();
+                for (Nutrition n : recipe.getNutrition()) {
+                    nutritionAy.add(n.getTitle()+" "+n.getAmount()+" "+n.getUnit());
+                }
+                b.putStringArrayList("recipeNutrition", nutritionAy);
+
+                Data.nowDetail = recipe;
+                i.putExtras(b);
+                getActivity().startActivity(i);
+            }
+        });
+
+        final TextView comment = view.findViewById(R.id.comment);
+        Button finish = view.findViewById(R.id.finish);
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Data.nowCooking == null) {
+                    Toast.makeText(getContext(), "There is no recipe", Toast.LENGTH_SHORT).show();
+                } else {
+                    // create a history and store in database
+                    long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    String userComment = comment.getText().toString();
+
+                    History history = new History(Data.nowCooking.getTitle()
+                            , elapsedMillis, userComment);
+
+                    AppDatabase db = AppDatabase.getInstance(getContext());
+                    HistoryInsertAsyncTask historyInsertAsyncTask = new HistoryInsertAsyncTask();
+                    historyInsertAsyncTask.setDatabase(db);
+                    historyInsertAsyncTask.execute(history);
+
+                    // clear the nowCooking
+                    Data.nowCooking = null;
+
+                    // replace a none title fragment
+                    InProgress newInProgress = new InProgress();
+                    FragmentTransaction fragmentTransaction = Data.fragmentManager.beginTransaction();
+                    fragmentTransaction.remove(Data.recipeNameAy.get("inProgress"));
+                    fragmentTransaction.add(R.id.fragmentSlot, newInProgress);
+                    fragmentTransaction.show(newInProgress);
+                    fragmentTransaction.commit();
+                    Data.nowFragment = newInProgress;
+                }
             }
         });
 

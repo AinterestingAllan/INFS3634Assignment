@@ -31,11 +31,14 @@ public class MainActivity extends FragmentActivity
 
         final RecipeMenuFragment recipeMenuFragment = new RecipeMenuFragment();
         final InProgress inProgress = new InProgress();
+        Data.recipeNameAy.put("inProgress", inProgress);
+
         final ProfileFragment profileFragment = new ProfileFragment();
 
         //Fragment Manager
             final RecipeMenuFragment fragment = new RecipeMenuFragment();
             final FragmentManager fragmentManager = getSupportFragmentManager();
+            Data.fragmentManager = fragmentManager;
             final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.fragmentSlot,recipeMenuFragment);
             fragmentTransaction.add(R.id.fragmentSlot,inProgress);
@@ -57,7 +60,7 @@ public class MainActivity extends FragmentActivity
                         switchToFragment(recipeMenuFragment,fragmentManager);
                         break;
                     case R.id.inProgress:
-                        switchToFragment(inProgress,fragmentManager);
+                        switchToFragment(Data.recipeNameAy.get("inProgress"),fragmentManager);
                         break;
                     case R.id.profileicon:
                         switchToFragment(profileFragment,fragmentManager);
