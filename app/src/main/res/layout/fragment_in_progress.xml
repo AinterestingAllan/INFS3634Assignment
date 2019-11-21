@@ -68,24 +68,12 @@
         app:layout_constraintVertical_bias="0.28" />
 
     <Button
-<<<<<<< HEAD
-        android:id="@+id/button"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:text="Finish"
-=======
         android:id="@+id/backToDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="See detail"
         app:layout_constraintBottom_toTopOf="@+id/choronmeter1"
->>>>>>> 9c6e2ed0f46bb8bd37f3731e5f3970b4aae69de2
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
