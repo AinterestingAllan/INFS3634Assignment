@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.infs3634assignment.Connectivity.ScoreDAO;
+import com.example.infs3634assignment.Connectivity.ScoreDatabase;
 import com.example.infs3634assignment.HistoryActivity;
+import com.example.infs3634assignment.Quiz;
 import com.example.infs3634assignment.R;
+import com.example.infs3634assignment.model.Score;
+
+import java.util.List;
 
 
 /**
@@ -93,8 +100,50 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        ScoreDatabase database = Room.databaseBuilder(getContext(), ScoreDatabase.class, "db-scores")
+                .allowMainThreadQueries()   //Allows room to do operation on main thread
+                .build();
+        ScoreDAO scoreDAO = database.getScoreDAO();
+
+        int quizsum = 0;
+
+        List<Score> quizScores = scoreDAO.getScores();
+        for (Score score : quizScores) {
+            int s1 = score.getQuizScore();
+            quizsum += s1;
+
+            TextView quizScore = view.findViewById(R.id.quiz_score);
+            quizScore.setText(Integer.toString(quizsum));
+
+        }
+
+
+
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ScoreDatabase database = Room.databaseBuilder(getContext(), ScoreDatabase.class, "db-scores")
+                .allowMainThreadQueries()   //Allows room to do operation on main thread
+                .build();
+        ScoreDAO scoreDAO = database.getScoreDAO();
+
+        int quizsum = 0;
+
+        List<Score> quizScores = scoreDAO.getScores();
+        int QuizCount = quizScores.size();
+
+        for (Score score : quizScores) {
+            int s1 = score.getQuizScore();
+            quizsum += s1;
+
+            TextView quizScore = getActivity().findViewById(R.id.quiz_score);
+            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
+
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -113,6 +162,7 @@ public class ProfileFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+
     }
 
     @Override

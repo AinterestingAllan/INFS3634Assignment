@@ -2,6 +2,7 @@ package com.example.infs3634assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -16,10 +17,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.infs3634assignment.Connectivity.AppDatabase;
+import com.example.infs3634assignment.Connectivity.ScoreDAO;
+import com.example.infs3634assignment.Connectivity.ScoreDatabase;
+import com.example.infs3634assignment.model.Score;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
+import java.util.Random;
 
 public class Quiz extends AppCompatActivity {
     public static final String EXTRA_SCORE = "extraScore";
@@ -60,22 +68,33 @@ public class Quiz extends AppCompatActivity {
 
     private long backPressedTime;
 
-    Bundle b = getIntent().getExtras();
-    String quizTitle = b.getString("quizTitle");
-    String quizGluten = b.getString("quizGluten");
-    String quizDairy = b.getString("quizDairy");
-    String quizCalories = b.getString("quizCalories");
-    String quizProtein = b.getString("quizProtein");
-    String quizFat = b.getString("quizFat");
-    String quizCarbs = b.getString("quizCarbs");
-
+    private static final String DB_PATH = "/data/data/com.example.infs3634assignment/databases/MyAwesomeQuiz.db";
+    private void doDBCheck()
+    {
+        try{
+            File file = new File(DB_PATH);
+            file.delete();
+        }catch(Exception ex)
+        {}
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        updateQuestion();
+
+        doDBCheck();
+
+        Bundle b = getIntent().getExtras();
+        String quizTitle = b.getString("quizTitle");
+        String quizGluten = b.getString("quizGluten");
+        String quizDairy = b.getString("quizDairy");
+        String quizCalories = b.getString("quizCalories");
+        String quizProtein = b.getString("quizProtein");
+        String quizFat = b.getString("quizFat");
+        String quizCarbs = b.getString("quizCarbs");
+
 
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_vire_score);
@@ -90,7 +109,8 @@ public class Quiz extends AppCompatActivity {
         textColorDefaultCd = textViewCountDown.getTextColors();
 
         if(savedInstanceState == null) {
-            QuizDbHelper dbHelper = new QuizDbHelper(this);
+            QuizDbHelper dbHelper = new QuizDbHelper(this, quizTitle, quizGluten, quizDairy, quizCalories, quizProtein, quizFat, quizCarbs);
+
             questionList = dbHelper.getAllQuestions();
             questionCountTotal = questionList.size();
             Collections.shuffle(questionList);
@@ -337,13 +357,6 @@ public class Quiz extends AppCompatActivity {
         score.setText(result1);*/
     }
 
-    private void updateQuestion(){
-        QuizDbHelper db = new QuizDbHelper(this);
-        ArrayList<Question> questions = db.getAllQuestions();
-        
-
-    }
-
     private void showNextQuestion() {
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
@@ -448,7 +461,23 @@ public class Quiz extends AppCompatActivity {
         Intent resultIntent = new Intent();
         resultIntent.putExtra(EXTRA_SCORE, score);
         setResult(RESULT_OK,resultIntent);
+
+        ScoreDatabase database = Room.databaseBuilder(getApplicationContext(), ScoreDatabase.class, "db-scores")
+                .allowMainThreadQueries()   //Allows room to do operation on main thread
+                .build();
+        ScoreDAO scoreDAO = database.getScoreDAO();
+
+        int id = generateRandomInt(100000);
+
+        Score s1 = new Score(id, score);
+        scoreDAO.insert(s1);
+
         finish();
+    }
+
+    public static int generateRandomInt(int upperRange){
+        Random random = new Random();
+        return random.nextInt(upperRange);
     }
 
     @Override
