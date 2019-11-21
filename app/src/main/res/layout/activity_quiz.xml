@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".Quiz">
 
-    <LinearLayout
-        android:id="@+id/QuizLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+    <TextView
+        android:id="@+id/text_vire_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"></TextView>
 
-        <include
-            android:id="@+id/Q1Layout"
-            layout="@layout/questionlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/text_view_question_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question: 1/x"
+        android:layout_below="@id/text_vire_score"></TextView>
 
-        </include>
+    <TextView
+        android:id="@+id/text_view_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:text="00:30"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"></TextView>
 
-        <include
-            android:id="@+id/Q2Layout"
-            layout="@layout/questionlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/text_view_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here will be the questiom text\nHere will be the questiom text"
+        android:textSize="20sp"
+        android:layout_above="@+id/radio_group"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"></TextView>
 
-        </include>
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/Q3Layout"
-            layout="@layout/questionlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </include>
-
-        <include
-            android:id="@+id/Q4Layout"
-            layout="@layout/questionlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </include>
-
-        <include
-            android:id="@+id/Q5Layout"
-            layout="@layout/questionlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </include>
-
-        <TextView
-            android:id="@+id/score"
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/radio_button1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
+            android:text="Option1"></RadioButton>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RadioButton
+            android:id="@+id/radio_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option2"></RadioButton>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_confirm_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:layout_below="@+id/radio_group"></Button>
+
+
+
+</RelativeLayout>
