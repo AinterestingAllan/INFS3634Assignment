@@ -60,12 +60,22 @@ public class Quiz extends AppCompatActivity {
 
     private long backPressedTime;
 
+    Bundle b = getIntent().getExtras();
+    String quizTitle = b.getString("quizTitle");
+    String quizGluten = b.getString("quizGluten");
+    String quizDairy = b.getString("quizDairy");
+    String quizCalories = b.getString("quizCalories");
+    String quizProtein = b.getString("quizProtein");
+    String quizFat = b.getString("quizFat");
+    String quizCarbs = b.getString("quizCarbs");
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        updateQuestion();
 
         textViewQuestion = findViewById(R.id.text_view_question);
         textViewScore = findViewById(R.id.text_vire_score);
@@ -327,6 +337,13 @@ public class Quiz extends AppCompatActivity {
         score.setText(result1);*/
     }
 
+    private void updateQuestion(){
+        QuizDbHelper db = new QuizDbHelper(this);
+        ArrayList<Question> questions = db.getAllQuestions();
+        
+
+    }
+
     private void showNextQuestion() {
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
@@ -340,7 +357,7 @@ public class Quiz extends AppCompatActivity {
             rb2.setText(currenrQuestion.getOption2());
 
             questionCounter++;
-            textviewQuestionCount.setText("com.example.infs3634assignment.Question: " + questionCounter + "/" + questionCountTotal);
+            textviewQuestionCount.setText("Question: " + questionCounter + "/" + questionCountTotal);
             answered = false;
             buttonConfiemNext.setText("confirm");
 
