@@ -4,117 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProjectFragments.InProgress">
+    tools:context=".ProjectFragments.InProgress"
+    android:layout_marginBottom="50sp">
 
-    <Chronometer
-        android:id="@+id/choronmeter1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginRight="104dp"
-        android:layout_marginBottom="48dp"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/detail_start"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></Chronometer>
-
-    <Button
-        android:id="@+id/time_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginBottom="276dp"
-        android:text="Start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"></Button>
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/time_pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginBottom="276dp"
-        android:text="Pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/time_start"></Button>
+        <TextView
+            android:id="@+id/progress_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recipe Title"
+            android:textSize="30sp"
+            app:fontFamily="@font/hind_light"
+            android:gravity="center"
+            android:layout_margin="10sp"
+            android:textColor="#FF0067"/>
 
-    <Button
-        android:id="@+id/time_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginBottom="276dp"
-        android:text="Reset"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/time_pause"></Button>
+        <Button
+            android:id="@+id/backToDetail"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#CCFFFFFF"
+            android:layout_marginRight="5sp"
+            android:textSize="15sp"
+            app:fontFamily="@font/hind_light"
+            android:text="View Recipe"
+            android:layout_margin="10sp"/>
 
-    <TextView
-        android:id="@+id/progress_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:text="title"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/choronmeter1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        <Chronometer
+            android:id="@+id/choronmeter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60sp"
 
-    <Button
-        android:id="@+id/backToDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="See detail"
-        app:layout_constraintBottom_toTopOf="@+id/choronmeter1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_title" />
+            android:textColor="#FFB6C1"
+            android:layout_margin="20sp"></Chronometer>
 
-    <EditText
-        android:id="@+id/comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_pause"
-        app:layout_constraintVertical_bias="0.372" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leave your comment"
-        app:layout_constraintBottom_toTopOf="@+id/comment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_start"
-        app:layout_constraintVertical_bias="0.522" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="20sp">
 
-    <Button
-        android:id="@+id/finish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Finish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comment" />
+            <Button
+                android:id="@+id/time_start"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#CCFFFFFF"
+                android:layout_marginRight="5sp"
+                android:textSize="15sp"
+                app:fontFamily="@font/hind_light"
+                android:text="Start"></Button>
+
+            <Button
+                android:id="@+id/time_pause"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#CCFFFFFF"
+                android:layout_marginRight="5sp"
+                android:textSize="15sp"
+                app:fontFamily="@font/hind_light"
+                android:text="Pause"></Button>
+
+            <Button
+                android:id="@+id/time_reset"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#CCFFFFFF"
+                android:layout_marginRight="5sp"
+                android:textSize="15sp"
+                app:fontFamily="@font/hind_light"
+                android:text="Reset"></Button>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Leave your comment"
+            android:textSize="18sp"
+            app:fontFamily="@font/hind_light" />
+
+        <EditText
+            android:id="@+id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/finish"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#CCFFFFFF"
+            android:layout_marginRight="5sp"
+            android:textSize="15sp"
+            app:fontFamily="@font/hind_light"
+            android:text="Finish"/>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

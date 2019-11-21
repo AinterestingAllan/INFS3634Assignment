@@ -32,8 +32,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.his_title.setText(data.get(position).getRecipeTitle());
-        holder.his_du.setText("How long I study in this recipe :"+data.get(position).getDuriation());
-        holder.his_comment.setText(data.get(position).getComment());
+        holder.his_du.setText("Time Studying Recipe: "+data.get(position).getDuriation());
+        holder.his_comment.setText("Comments: " + data.get(position).getComment());
     }
 
     @Override

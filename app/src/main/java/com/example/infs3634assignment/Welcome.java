@@ -27,19 +27,19 @@ public class Welcome extends AppCompatActivity {
         TextView recipetitle = item2.findViewById(R.id.Title);
         TextView recipebody = item2.findViewById(R.id.Body);
         recipetitle.setText("Recipes");
-        recipebody.setText("Educate yourself with Keto recipes filtered by different cuisines - each recipe shows nutritional details and links to the recipe website!\n");
+        recipebody.setText("Educate yourself with Keto recipes filtered by different cuisines - each recipe shows nutritional details and recipe instructions!\n");
 
         final LinearLayout item3 = findViewById(R.id.quizrow);
         TextView quiztitle = item3.findViewById(R.id.Title);
         TextView quizbody = item3.findViewById(R.id.Body);
         quiztitle.setText("Quizzes");
-        quizbody.setText("Test your knowledge about Keto recipes and gain points for every correct question.\n");
+        quizbody.setText("Test your knowledge about specific Keto recipes and gain points for every correct question.\n");
 
         final LinearLayout item4 = findViewById(R.id.commentsrow);
         TextView commentstitle = item4.findViewById(R.id.Title);
         TextView commentsrow = item4.findViewById(R.id.Body);
-        commentstitle.setText("Comments");
-        commentsrow.setText("Add notes and comments to recipes to keep track of your thoughts and points of interest!\n");
+        commentstitle.setText("History");
+        commentsrow.setText("Keep track of all the recipes you've cooked! Track your cooking times and add comments! \n");
 
         // Moves to main activity
         ImageButton nextButton = findViewById(R.id.nextButton);

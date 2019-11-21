@@ -29,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Logo" />
+        app:layout_constraintTop_toBottomOf="@id/Logo"
+        android:textColor="#FF0067"/>
 
     <ImageButton
         android:id="@+id/ItalianButton"

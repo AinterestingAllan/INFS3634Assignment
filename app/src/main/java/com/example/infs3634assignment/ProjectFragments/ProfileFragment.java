@@ -83,11 +83,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        ConstraintLayout profile = view.findViewById(R.id.Profile);
-        TextView titlename = profile.findViewById(R.id.textView8);
-        titlename.setText("Profile");
-        ImageView image = profile.findViewById(R.id.logo);
-        image.setImageResource(R.drawable.ketofirstlogo);
 
         Button viewHistory = view.findViewById(R.id.viewHistory);
         viewHistory.setOnClickListener(new View.OnClickListener() {
