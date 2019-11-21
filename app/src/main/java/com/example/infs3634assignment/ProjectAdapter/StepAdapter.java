@@ -13,6 +13,8 @@ import com.example.infs3634assignment.model.Steps;
 
 import java.util.List;
 
+//ADAPTER FOR STEP CLASS
+
 public class StepAdapter extends RecyclerView.Adapter<StepAdapter.Holder> {
     private List<Steps> data;
 
@@ -31,7 +33,7 @@ public class StepAdapter extends RecyclerView.Adapter<StepAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        holder.step.setText("Step: "+data.get(position).getNumber());
+        holder.step.setText("Step: " + data.get(position).getNumber());
         holder.instruction.setText(data.get(position).getStep());
     }
 

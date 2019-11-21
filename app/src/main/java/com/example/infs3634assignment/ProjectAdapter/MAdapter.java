@@ -22,7 +22,7 @@ import com.example.infs3634assignment.model.Result;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//ADAPTER FOR RECIPE CLASS
 
 public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
 
@@ -59,18 +59,18 @@ public class MAdapter extends RecyclerView.Adapter<MAdapter.ViewHolder> {
                 Intent i = new Intent(mContext, DetailRecipe.class);
                 Bundle b = new Bundle();
                 final Result recipe = mRecipe.get(position);
-                b.putString("recipeTitle",recipe.getTitle());
+                b.putString("recipeTitle", recipe.getTitle());
                 b.putString("recipeURL", recipe.getSourceUrl());
                 b.putString("recipeImage", recipe.getImage());
-                b.putString("healthRank", recipe.getHealthScore()+"");
+                b.putString("healthRank", recipe.getHealthScore() + "");
                 b.putString("preM", recipe.getPreparationMinutes());
                 b.putString("cookM", recipe.getCookingMinutes());
-                b.putString("gluten", recipe.getGlutenFree()+"");
-                b.putString("dairy", recipe.getDairyFree()+"");
+                b.putString("gluten", recipe.getGlutenFree() + "");
+                b.putString("dairy", recipe.getDairyFree() + "");
 
                 ArrayList<String> nutritionAy = new ArrayList<>();
                 for (Nutrition n : recipe.getNutrition()) {
-                    nutritionAy.add(n.getTitle()+" "+n.getAmount()+" "+n.getUnit());
+                    nutritionAy.add(n.getTitle() + " " + n.getAmount() + " " + n.getUnit());
                 }
                 b.putStringArrayList("recipeNutrition", nutritionAy);
 

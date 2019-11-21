@@ -3,13 +3,16 @@ package com.example.infs3634assignment;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+//CLASS FOR QUESTIONS (QUIZZES)
+
 public class Question implements Parcelable {
     private String question;
     private String optionn1;
     private String option2;
     private int answerNr;
 
-    public Question(){}
+    public Question() {
+    }
 
     public Question(String question, String optionn1, String option2, int answerNr) {
         this.question = question;

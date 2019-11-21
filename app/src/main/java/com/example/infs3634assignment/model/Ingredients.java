@@ -1,5 +1,7 @@
 package com.example.infs3634assignment.model;
 
+// INGREDIENTS DATABASE FOR RECIPE
+
 public class Ingredients {
     private String id;
     private String name;

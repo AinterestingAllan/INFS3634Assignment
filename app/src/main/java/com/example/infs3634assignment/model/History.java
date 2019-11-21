@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 
+//CLASS ENTITY FOR RECIPE HISTORY
+
 @Entity(tableName = "History")
 public class History {
     @PrimaryKey(autoGenerate = true)

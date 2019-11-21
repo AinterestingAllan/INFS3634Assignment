@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import com.example.infs3634assignment.FragmentSwitcher;
 import com.example.infs3634assignment.R;
 
+//CODE FOR MENU CUISINES
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,9 +72,10 @@ public class RecipeMenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_recipe_menu, container, false);
 
+        //PASS DATA TO SPECIFIC RECIPE CUISINE
         ImageButton mexicanbutton = view.findViewById(R.id.MexicanButton);
         mexicanbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

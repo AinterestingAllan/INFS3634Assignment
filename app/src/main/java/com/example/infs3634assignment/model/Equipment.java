@@ -1,5 +1,7 @@
 package com.example.infs3634assignment.model;
 
+//CLASS FOR RECIPE EQUIPMENT
+
 public class Equipment {
     private String id;
     private String name;

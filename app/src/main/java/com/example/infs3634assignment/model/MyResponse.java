@@ -2,6 +2,8 @@ package com.example.infs3634assignment.model;
 
 import java.util.List;
 
+//RESULTS CLASS FOR RECIPE LISTS
+
 public class MyResponse {
     private List<Result> results;
     private int totalResults;

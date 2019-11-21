@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.example.infs3634assignment.R;
 
 
+//CODE FOR QUIZ MENU (TESTING PURPOSES)
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the

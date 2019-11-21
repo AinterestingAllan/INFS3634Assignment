@@ -1,5 +1,7 @@
 package com.example.infs3634assignment.model;
 
+// LENGTH CLASS FOR RECIPE
+
 public class Length {
     private String number;
     private String unit;

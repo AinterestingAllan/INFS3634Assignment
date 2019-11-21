@@ -9,18 +9,21 @@ import com.example.infs3634assignment.AsyncTaskDelegate;
 import com.example.infs3634assignment.Data;
 import com.example.infs3634assignment.model.History;
 import com.example.infs3634assignment.HistoryActivity;
+
 import java.util.List;
 
-public class HistorySelectAsyncTask extends AsyncTask<String, Integer, List<History>>{
+//ASYNC TASK FOR RECIPE HISTORY VIEW
+
+public class HistorySelectAsyncTask extends AsyncTask<String, Integer, List<History>> {
     private AppDatabase db;
     private AsyncTaskDelegate delegate;
 
 
-    public void setDatabase(AppDatabase db){
+    public void setDatabase(AppDatabase db) {
         this.db = db;
     }
 
-    public void setDelegate(AsyncTaskDelegate  delegate) {
+    public void setDelegate(AsyncTaskDelegate delegate) {
         this.delegate = delegate;
     }
 

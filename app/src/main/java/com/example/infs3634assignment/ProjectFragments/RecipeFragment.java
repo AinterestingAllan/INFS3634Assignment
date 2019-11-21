@@ -29,6 +29,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
+//CODE FOR INDIVIDUAL RECIPE
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,9 +99,9 @@ public class RecipeFragment extends Fragment {
         TextView fName = view.findViewById(R.id.fTitle);
         fName.setText(this.recipeName);
 
+        //GRAB RECIPE FOR SPECIFIC CUISINE
 
-
-        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine="+this.recipeName+"&diet=" +
+        String url = "https://api.spoonacular.com/recipes/complexSearch?cuisine=" + this.recipeName + "&diet=" +
                 "ketogenic&maxCarbs=5&minFat=0&minProtein=0&minCalories=0&addRecipeInformation=" +
                 "true&number=2&apiKey=6a2de8d12878445d9dcfb72a79d43d64";
 
@@ -116,7 +117,7 @@ public class RecipeFragment extends Fragment {
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
                 fRecipeList.setLayoutManager(linearLayoutManager);
 
-                MAdapter recyclerViewAdapter = new MAdapter(getContext(),data);
+                MAdapter recyclerViewAdapter = new MAdapter(getContext(), data);
                 fRecipeList.setAdapter(recyclerViewAdapter);
             }
         };
@@ -134,7 +135,6 @@ public class RecipeFragment extends Fragment {
                 new StringRequest(Request.Method.GET, url, responseListener, errorListener);
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(stringRequest);
-
 
 
         return view;

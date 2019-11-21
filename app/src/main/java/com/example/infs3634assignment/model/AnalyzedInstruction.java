@@ -2,6 +2,8 @@ package com.example.infs3634assignment.model;
 
 import java.util.List;
 
+// CLASS FOR RECIPE INSTRUCTIONS
+
 public class AnalyzedInstruction {
     private String name;
     private List<Steps> steps;

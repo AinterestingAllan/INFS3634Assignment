@@ -2,9 +2,11 @@ package com.example.infs3634assignment;
 
 import android.provider.BaseColumns;
 
+//SUPPLEMENTARY CLASS FOR QUIZ
 public final class QuizContract {
 
-    public QuizContract(){}
+    public QuizContract() {
+    }
 
     public static class QustionsTable implements BaseColumns {
         public static final String TABLE_NAME = "quiz_questions";

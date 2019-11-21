@@ -2,6 +2,8 @@ package com.example.infs3634assignment.model;
 
 import java.util.List;
 
+//CLASS FOR RESULTS OF RECIPE CUISINES
+
 public class Result {
     private String id;
     private String title;

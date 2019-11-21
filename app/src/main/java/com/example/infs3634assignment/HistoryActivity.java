@@ -13,14 +13,14 @@ import com.example.infs3634assignment.model.History;
 
 import java.util.List;
 
+//CLASS FOR HISTORY ACTIVITY
+
 public class HistoryActivity extends AppCompatActivity implements AsyncTaskDelegate {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-
-
 
         AppDatabase db = AppDatabase.getInstance(this);
         HistorySelectAsyncTask historySelectAsyncTask = new HistorySelectAsyncTask();

@@ -29,6 +29,8 @@ import com.example.infs3634assignment.model.History;
 
 import java.util.ArrayList;
 
+//CLASS FOR IN PROGRESS TIMER
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -90,9 +92,11 @@ public class InProgress extends Fragment {
         View view = inflater.inflate(R.layout.fragment_in_progress, container, false);
         TextView title = view.findViewById(R.id.progress_title);
 
+        //HANDLES START, STOP, RESET OF TIMER
+
         if (Data.nowCooking == null) {
             title.setText("No recipe");
-        }else {
+        } else {
             title.setText(Data.nowCooking.getTitle());
         }
 
@@ -135,11 +139,14 @@ public class InProgress extends Fragment {
             }
         });
 
+
+        // VIEW RECIPE DETAIL
+
         Button backToDatail = view.findViewById(R.id.backToDetail);
         backToDatail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
                 try {
 
                     Intent i = new Intent(getContext(), DetailRecipe.class);
@@ -163,11 +170,13 @@ public class InProgress extends Fragment {
                     Data.nowDetail = recipe;
                     i.putExtras(b);
                     getActivity().startActivity(i);
-                } catch (NullPointerException error){
+                } catch (NullPointerException error) {
                     Toast.makeText(getContext(), "There is no recipe to view.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        //FINISH RECIPE TIMER
 
         final TextView comment = view.findViewById(R.id.comment);
         Button finish = view.findViewById(R.id.finish);

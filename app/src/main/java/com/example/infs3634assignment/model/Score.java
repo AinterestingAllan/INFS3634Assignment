@@ -5,6 +5,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//CLASS ENTITY FOR SCORES
+
 @Entity(tableName = "Score")
 public class Score {
 

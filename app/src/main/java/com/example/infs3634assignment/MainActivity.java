@@ -24,7 +24,7 @@ public class MainActivity extends FragmentActivity
         InProgress.OnFragmentInteractionListener {
 
 
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -36,19 +36,19 @@ public class MainActivity extends FragmentActivity
         final ProfileFragment profileFragment = new ProfileFragment();
 
         //Fragment Manager
-            final RecipeMenuFragment fragment = new RecipeMenuFragment();
-            final FragmentManager fragmentManager = getSupportFragmentManager();
-            Data.fragmentManager = fragmentManager;
-            final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(R.id.fragmentSlot,recipeMenuFragment);
-            fragmentTransaction.add(R.id.fragmentSlot,inProgress);
-            fragmentTransaction.add(R.id.fragmentSlot,profileFragment);
-            fragmentTransaction.hide(inProgress);
-            fragmentTransaction.hide(profileFragment);
-            fragmentTransaction.show(recipeMenuFragment);
-            fragmentTransaction.commit();
+        final RecipeMenuFragment fragment = new RecipeMenuFragment();
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        Data.fragmentManager = fragmentManager;
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragmentSlot, recipeMenuFragment);
+        fragmentTransaction.add(R.id.fragmentSlot, inProgress);
+        fragmentTransaction.add(R.id.fragmentSlot, profileFragment);
+        fragmentTransaction.hide(inProgress);
+        fragmentTransaction.hide(profileFragment);
+        fragmentTransaction.show(recipeMenuFragment);
+        fragmentTransaction.commit();
 
-            Data.nowFragment = recipeMenuFragment;
+        Data.nowFragment = recipeMenuFragment;
 
         // Code for bottom navigation
         final BottomNavigationView BottomNav = findViewById(R.id.BottomNav);
@@ -57,13 +57,13 @@ public class MainActivity extends FragmentActivity
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.recipeicon:
-                        switchToFragment(recipeMenuFragment,fragmentManager);
+                        switchToFragment(recipeMenuFragment, fragmentManager);
                         break;
                     case R.id.inProgress:
-                        switchToFragment(Data.recipeNameAy.get("inProgress"),fragmentManager);
+                        switchToFragment(Data.recipeNameAy.get("inProgress"), fragmentManager);
                         break;
                     case R.id.profileicon:
-                        switchToFragment(profileFragment,fragmentManager);
+                        switchToFragment(profileFragment, fragmentManager);
                         break;
                 }
                 return false;
@@ -79,15 +79,6 @@ public class MainActivity extends FragmentActivity
         Data.nowFragment = fragment;
     }
 
-//    public void switchToFragment2() {
-//        FragmentManager manager = getSupportFragmentManager();
-//        manager.beginTransaction().replace(R.id.fragmentSlot, new InProgress()).commit();
-//    }
-//
-//    public void switchToFragment3() {
-//        FragmentManager manager = getSupportFragmentManager();
-//        manager.beginTransaction().replace(R.id.fragmentSlot, new ProfileFragment()).commit();
-//    }
 
     public void onFragmentInteraction(Uri uri) {
         //you can leave it empty
@@ -106,14 +97,14 @@ public class MainActivity extends FragmentActivity
             }
         }
 
-        if (exist){
+        if (exist) {
             Fragment f = Data.recipeNameAy.get(tag);
             fragmentTransaction.remove(f);
-            fragmentTransaction.add(R.id.fragmentSlot,fragment);
+            fragmentTransaction.add(R.id.fragmentSlot, fragment);
 
         } else {
-            Data.recipeNameAy.put(tag,fragment);
-            fragmentTransaction.add(R.id.fragmentSlot,fragment);
+            Data.recipeNameAy.put(tag, fragment);
+            fragmentTransaction.add(R.id.fragmentSlot, fragment);
 
         }
 

@@ -11,6 +11,8 @@ import com.example.infs3634assignment.model.Score;
 
 import java.util.List;
 
+//DAO FOR RECIPE HISTORY DATABASE
+
 @Dao
 public interface HistoryDao {
     @Query("SELECT * FROM History")

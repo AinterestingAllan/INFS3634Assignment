@@ -82,11 +82,7 @@ public class ProfileFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
         }
-
-
 
     }
 
@@ -94,6 +90,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        //BUTTON TO VIEW HISTORY LIST
 
         Button viewHistory = view.findViewById(R.id.viewHistory);
         viewHistory.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +102,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        //CODE TO DETERMINE TOTAL QUIZ SCORE
         ScoreDatabase database = Room.databaseBuilder(getContext(), ScoreDatabase.class, "db-scores")
                 .allowMainThreadQueries()   //Allows room to do operation on main thread
                 .build();
@@ -116,19 +115,20 @@ public class ProfileFragment extends Fragment {
             int s1 = score.getQuizScore();
             quizsum += s1;
             TextView quizScore = view.findViewById(R.id.quiz_score);
-            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
+            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount * 5));
 
             TextView quizDetails = view.findViewById(R.id.health_score);
             quizDetails.setText("You have completed " + QuizCount + " quizzes");
-
         }
-
 
         return view;
     }
 
     @Override
     public void onResume() {
+
+        //CODE FOR TOTAL QUIZ SCORE
+
         super.onResume();
         ScoreDatabase database = Room.databaseBuilder(getContext(), ScoreDatabase.class, "db-scores")
                 .allowMainThreadQueries()   //Allows room to do operation on main thread
@@ -145,7 +145,7 @@ public class ProfileFragment extends Fragment {
             quizsum += s1;
 
             TextView quizScore = getActivity().findViewById(R.id.quiz_score);
-            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
+            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount * 5));
 
             TextView quizDetails = getActivity().findViewById(R.id.health_score);
             quizDetails.setText("You have completed " + QuizCount + " quizzes");

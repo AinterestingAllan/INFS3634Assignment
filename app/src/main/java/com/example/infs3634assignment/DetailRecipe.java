@@ -22,18 +22,14 @@ import com.example.infs3634assignment.ProjectFragments.InProgress;
 import com.example.infs3634assignment.ProjectFragments.ProfileFragment;
 import com.example.infs3634assignment.ProjectFragments.QuizMenuFragment;
 import com.example.infs3634assignment.ProjectFragments.RecipeMenuFragment;
-import com.example.infs3634assignment.model.Equipment;
-import com.example.infs3634assignment.model.Ingredients;
 import com.example.infs3634assignment.model.Steps;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
-        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
- {
-     // go to InProgress fragment
-     public Button startButton;
+        ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener {
+    // go to InProgress fragment
+    public Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,41 +75,16 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         nutrition3.setText(recipeNutrition.get(2));
         nutrition4.setText(recipeNutrition.get(3));
 
-//        String recipeTitle = receivingTitle;
-//        String recipeURL = receivingURL;
-//        String recipeImage = receivingImage;
-//        ArrayList recipeNutrition = receivingNutrition;
-//        String recipeMinutes = receivingMinutes;
-//        String recipeServings = receivingServings;
-//        String recipeSource = receivingSource;
-//
-//        StringBuilder builder = new StringBuilder();
-//        String calories = recipeNutrition.get(0).toString();
-//        String amount1 = calories.substring(18, 23);
-//        String protein = recipeNutrition.get(1).toString();
-//        String amount2 = protein.substring(16, 21);
-//        String fat = recipeNutrition.get(2).toString();
-//        String amount3 = fat.substring(16, 21);
-//        String carbs = recipeNutrition.get(3).toString();
-//        String amount4 = carbs.substring(16, 21);
-
-//        builder.append(
-//                "Calories: " + amount1 + " cal" + "\n" +
-//                        "Protein: " + amount2 + " g" + "\n" +
-//                        "Fat: " + amount3 + " g" + "\n" +
-//                        "Carbohydrates: " + amount4 + " g");
-
-
         RecyclerView detail_rv = findViewById(R.id.detail_rv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         detail_rv.setLayoutManager(linearLayoutManager);
         StepAdapter stepAdapter = new StepAdapter();
 
-
+        //SET RECIPE STEPS OR SHOW NO STEPS
         try {
-        stepAdapter.setData(Data.nowDetail.getAnalyzedInstructions().get(0).getSteps());
-        detail_rv.setAdapter(stepAdapter);}
-        catch (IndexOutOfBoundsException error){
+            stepAdapter.setData(Data.nowDetail.getAnalyzedInstructions().get(0).getSteps());
+            detail_rv.setAdapter(stepAdapter);
+        } catch (IndexOutOfBoundsException error) {
             Steps st1 = new Steps("No Recipe Instructions");
             ArrayList<Steps> errorList = new ArrayList<>();
             errorList.add(st1);
@@ -121,28 +92,11 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
             detail_rv.setAdapter(stepAdapter);
         }
 
-//
-//
-//        ImageView DetailImage = findViewById(R.id.DetailImage);
         Glide.with(detail_image.getContext()).load(receivingImage).into(detail_image);
-//
-//        TextView DetailSource= findViewById(R.id.HealthRank);
-//        DetailSource.setText("By: " + recipeSource);
-//
-//        TextView DetailMinutes = findViewById(R.id.PreparationM);
-//        DetailMinutes.setText("Ready in " + recipeMinutes + " minutes");
-//
-//        TextView DetailServings = findViewById(R.id.glutenFree);
-//        DetailServings.setText("Serves: " + recipeServings);
-//
-//        TextView DetailURL = findViewById(R.id.dairyFree);
-//        DetailURL.setText("View Recipe: \n" + recipeURL + "\n");
-//
-//        TextView DetailNutrition = findViewById(R.id.DetailNutrition);
-//        DetailNutrition.setText(builder.toString());
 
         startButton = findViewById(R.id.detail_start);
 
+        //START TIMER FOR COOKING
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,11 +105,11 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.remove(Data.recipeNameAy.get("inProgress"));
                 InProgress inProgress = new InProgress();
-                fragmentTransaction.add(R.id.fragmentSlot,inProgress);
+                fragmentTransaction.add(R.id.fragmentSlot, inProgress);
                 fragmentTransaction.hide(Data.nowFragment);
                 fragmentTransaction.show(inProgress);
-                Data.nowFragment=inProgress;
-                Data.recipeNameAy.put("inProgress",inProgress);
+                Data.nowFragment = inProgress;
+                Data.recipeNameAy.put("inProgress", inProgress);
                 fragmentTransaction.commitAllowingStateLoss();
                 finish();
                 // Intent intent = new Intent(getApplicationContext(), stopwatch.class);
@@ -163,6 +117,7 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
             }
         });
 
+        //PASS DATA FOR QUIZ
         Button quizbutton = findViewById(R.id.Quiz);
         quizbutton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,6 +10,8 @@ import com.example.infs3634assignment.model.Score;
 
 import java.util.List;
 
+//DAO FOR SCORE DATABASE
+
 @Dao
 public interface ScoreDAO {
 

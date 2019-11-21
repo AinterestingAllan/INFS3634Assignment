@@ -1,5 +1,7 @@
 package com.example.infs3634assignment.model;
 
+//CLASS FOR NUTRITION OBJECT
+
 public class Nutrition {
     private String title;
     private String amount;

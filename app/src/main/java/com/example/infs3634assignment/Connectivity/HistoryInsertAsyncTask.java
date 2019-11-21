@@ -1,12 +1,15 @@
 package com.example.infs3634assignment.Connectivity;
 
 import android.os.AsyncTask;
+
 import com.example.infs3634assignment.model.History;
 
-public class HistoryInsertAsyncTask extends AsyncTask<History, Integer, String>{
+//ASYNC TASK FOR RECIPE HISTORY INSERT
+
+public class HistoryInsertAsyncTask extends AsyncTask<History, Integer, String> {
     private AppDatabase db;
 
-    public void setDatabase(AppDatabase db){
+    public void setDatabase(AppDatabase db) {
         this.db = db;
     }
 

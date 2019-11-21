@@ -10,6 +10,8 @@ import java.util.List;
 
 import java.util.HashMap;
 
+//CLASS FOR INPROGRESS FRAGMENT
+
 public class Data {
     public static HashMap<String, Fragment> recipeNameAy = new HashMap<>();
     public static Fragment nowFragment;

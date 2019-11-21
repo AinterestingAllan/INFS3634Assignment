@@ -13,7 +13,9 @@ import com.example.infs3634assignment.model.History;
 
 import java.util.List;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
+//ADAPTER FOR HISTORY CLASS
+
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder> {
     private List<History> data;
 
     public void setData(List<History> data) {
@@ -32,7 +34,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.his_title.setText(data.get(position).getRecipeTitle());
-        holder.his_du.setText("Time Studying Recipe: "+data.get(position).getDuriation());
+        holder.his_du.setText("Time Studying Recipe: " + data.get(position).getDuriation());
         holder.his_comment.setText("Comments: " + data.get(position).getComment());
         holder.his_score.setText("Health Score: " + data.get(position).getHealthScore());
     }

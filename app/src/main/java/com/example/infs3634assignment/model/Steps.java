@@ -2,6 +2,8 @@ package com.example.infs3634assignment.model;
 
 import java.util.List;
 
+//CLASS FOR RECIPE STEPS
+
 public class Steps {
     private int number;
     private String step;
@@ -9,12 +11,12 @@ public class Steps {
     private List<Equipment> equipment;
     //private List<Length> length;
 
-    public Steps(String step){
-        this.step=step;
+    public Steps(String step) {
+        this.step = step;
 
     }
 
-    public Steps(int number, List<Ingredients> ingredients,String step,
+    public Steps(int number, List<Ingredients> ingredients, String step,
                  List<Equipment> equipment) {
         this.number = number;
         this.ingredients = ingredients;
