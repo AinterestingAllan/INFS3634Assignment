@@ -172,13 +172,12 @@ public class InProgress extends Fragment {
                     Toast.makeText(getContext(), "There is no recipe", Toast.LENGTH_SHORT).show();
                 } else {
                     // create a history and store in database
-                    long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
-                    long elapsedSeconds = (elapsedMillis / 60);
+                    String elapsedMillis = chronometer.getText().toString();
                     String userComment = comment.getText().toString();
 
 
                     History history = new History(Data.nowCooking.getTitle()
-                            , elapsedSeconds, userComment, Data.nowCooking.getHealthScore());
+                            , elapsedMillis, userComment, Data.nowCooking.getHealthScore());
 
                     AppDatabase db = AppDatabase.getInstance(getContext());
                     HistoryInsertAsyncTask historyInsertAsyncTask = new HistoryInsertAsyncTask();

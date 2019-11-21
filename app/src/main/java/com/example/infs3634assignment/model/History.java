@@ -9,7 +9,7 @@ public class History {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     private String recipeTitle;
-    private long duriation;
+    private String duriation;
     private String comment;
     private int healthScore;
 
@@ -21,7 +21,7 @@ public class History {
         this.healthScore = healthScore;
     }
 
-    public History(String recipeTitle, long duriation, String comment, int healthScore) {
+    public History(String recipeTitle, String duriation, String comment, int healthScore) {
         this.recipeTitle = recipeTitle;
         this.duriation = duriation;
         this.comment = comment;
@@ -36,11 +36,11 @@ public class History {
         this.recipeTitle = recipe;
     }
 
-    public long getDuriation() {
+    public String getDuriation() {
         return duriation;
     }
 
-    public void setDuriation(long duriation) {
+    public void setDuriation(String duriation) {
         this.duriation = duriation;
     }
 
