@@ -33,7 +33,7 @@
             android:layout_marginBottom="10sp"
             android:gravity="center_horizontal"
             android:text="HISTORY"
-            android:textColor="#FF0Re067"
+            android:textColor="#FF0067"
             android:textSize="20sp"
             app:fontFamily="@font/hind_light"
             app:layout_constraintBottom_toTopOf="@id/history_rv"
