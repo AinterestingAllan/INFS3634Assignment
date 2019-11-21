@@ -139,27 +139,33 @@ public class InProgress extends Fragment {
         backToDatail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), DetailRecipe.class);
-                Bundle b = new Bundle();
-                final Result recipe = Data.nowCooking;
-                b.putString("recipeTitle",recipe.getTitle());
-                b.putString("recipeURL", recipe.getSourceUrl());
-                b.putString("recipeImage", recipe.getImage());
-                b.putString("healthRank", recipe.getHealthScore()+"");
-                b.putString("preM", recipe.getPreparationMinutes());
-                b.putString("cookM", recipe.getCookingMinutes());
-                b.putString("gluten", recipe.getGlutenFree()+"");
-                b.putString("dairy", recipe.getDairyFree()+"");
+                
+                try {
 
-                ArrayList<String> nutritionAy = new ArrayList<>();
-                for (Nutrition n : recipe.getNutrition()) {
-                    nutritionAy.add(n.getTitle()+" "+n.getAmount()+" "+n.getUnit());
+                    Intent i = new Intent(getContext(), DetailRecipe.class);
+                    Bundle b = new Bundle();
+                    final Result recipe = Data.nowCooking;
+                    b.putString("recipeTitle", recipe.getTitle());
+                    b.putString("recipeURL", recipe.getSourceUrl());
+                    b.putString("recipeImage", recipe.getImage());
+                    b.putString("healthRank", recipe.getHealthScore() + "");
+                    b.putString("preM", recipe.getPreparationMinutes());
+                    b.putString("cookM", recipe.getCookingMinutes());
+                    b.putString("gluten", recipe.getGlutenFree() + "");
+                    b.putString("dairy", recipe.getDairyFree() + "");
+
+                    ArrayList<String> nutritionAy = new ArrayList<>();
+                    for (Nutrition n : recipe.getNutrition()) {
+                        nutritionAy.add(n.getTitle() + " " + n.getAmount() + " " + n.getUnit());
+                    }
+                    b.putStringArrayList("recipeNutrition", nutritionAy);
+
+                    Data.nowDetail = recipe;
+                    i.putExtras(b);
+                    getActivity().startActivity(i);
+                } catch (NullPointerException error){
+                    Toast.makeText(getContext(), "There is no recipe to view.", Toast.LENGTH_SHORT).show();
                 }
-                b.putStringArrayList("recipeNutrition", nutritionAy);
-
-                Data.nowDetail = recipe;
-                i.putExtras(b);
-                getActivity().startActivity(i);
             }
         });
 

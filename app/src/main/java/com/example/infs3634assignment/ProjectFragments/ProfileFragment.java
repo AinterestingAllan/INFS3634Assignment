@@ -118,6 +118,9 @@ public class ProfileFragment extends Fragment {
             TextView quizScore = view.findViewById(R.id.quiz_score);
             quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
 
+            TextView quizDetails = view.findViewById(R.id.health_score);
+            quizDetails.setText("You have completed " + QuizCount + " quizzes");
+
         }
 
 
@@ -143,6 +146,9 @@ public class ProfileFragment extends Fragment {
 
             TextView quizScore = getActivity().findViewById(R.id.quiz_score);
             quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
+
+            TextView quizDetails = getActivity().findViewById(R.id.health_score);
+            quizDetails.setText("You have completed " + QuizCount + " quizzes");
 
         }
     }

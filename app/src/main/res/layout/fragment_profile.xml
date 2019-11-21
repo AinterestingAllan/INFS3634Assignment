@@ -18,24 +18,10 @@
 
         android:textSize="30sp"
         app:fontFamily="@font/hind_light"
-        app:layout_constraintBottom_toTopOf="@id/viewHistory"
+        app:layout_constraintBottom_toTopOf="@id/userdetails"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/viewHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View History"
-        android:padding="5sp"
-        android:background="#CCFFFFFF"
-        android:textSize="15sp"
-        app:fontFamily="@font/hind_light"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/userdetails"/>
 
     <LinearLayout
         android:id="@+id/userdetails"
@@ -46,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/scores"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewHistory">
+        app:layout_constraintTop_toBottomOf="@id/title">
 
         <ImageView
             android:id="@+id/user"
@@ -67,7 +53,8 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name: Ann"
+                android:text="Jennifer Phung"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:fontFamily="@font/hind_light" />
 
@@ -75,7 +62,8 @@
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="E-mail: ab.c@gmail.com"
+                android:text="test@email.com"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:fontFamily="@font/hind_light" />
 
@@ -83,7 +71,8 @@
                 android:id="@+id/id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID: BB"
+                android:text="ID: 5113521"
+                android:textColor="#000000"
                 android:textSize="16sp"
                 app:fontFamily="@font/hind_light" />
 
@@ -100,7 +89,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/userdetails"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewHistory"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -123,20 +112,21 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10sp"
-                android:text="Quiz Score:"
-                android:textSize="20sp"
+                android:text="Quiz Score: 0/0"
                 android:textColor="#FFB6C1"
+                android:textSize="20sp"
                 app:fontFamily="@font/hind_light" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_margin="10sp"
+            android:paddingLeft="40sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/health_score_image"
-                android:layout_width="30dp"
+                android:layout_width="20dp"
                 android:layout_height="30dp"
 
                 android:layout_gravity="center_vertical"
@@ -148,43 +138,30 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
 
-                android:textColor="#FFB6C1"
                 android:layout_marginLeft="10sp"
-                android:text="Health Score:"
-                android:textSize="20sp"
+                android:text="You have completed 0 quizzes."
+                android:textColor="#000000"
+                android:textSize="14sp"
                 app:fontFamily="@font/hind_light" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="10sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/time_score_image"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-
-                android:layout_gravity="center_vertical"
-                android:src="@android:drawable/ic_lock_idle_alarm" />
-
-            <TextView
-                android:id="@+id/time_score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:textColor="#FFB6C1"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10sp"
-                android:text="Time Score:"
-                android:textSize="20sp"
-                app:fontFamily="@font/hind_light" />
-
 
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/viewHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#CCFFFFFF"
+        android:padding="10sp"
+        android:text="View History"
+        android:textSize="15sp"
+        app:fontFamily="@font/hind_light"
+        tools:layout_editor_absoluteY="107dp"
+        app:layout_constraintTop_toBottomOf="@id/scores"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
