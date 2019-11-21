@@ -16,11 +16,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.infs3634assignment.Connectivity.AppDatabase;
+import com.example.infs3634assignment.Connectivity.HistoryDao;
+import com.example.infs3634assignment.Connectivity.HistorySelectAsyncTask;
 import com.example.infs3634assignment.Connectivity.ScoreDAO;
 import com.example.infs3634assignment.Connectivity.ScoreDatabase;
 import com.example.infs3634assignment.HistoryActivity;
 import com.example.infs3634assignment.Quiz;
 import com.example.infs3634assignment.R;
+import com.example.infs3634assignment.model.History;
 import com.example.infs3634assignment.model.Score;
 
 import java.util.List;
@@ -106,18 +110,15 @@ public class ProfileFragment extends Fragment {
         ScoreDAO scoreDAO = database.getScoreDAO();
 
         int quizsum = 0;
-
         List<Score> quizScores = scoreDAO.getScores();
+        int QuizCount = quizScores.size();
         for (Score score : quizScores) {
             int s1 = score.getQuizScore();
             quizsum += s1;
-
             TextView quizScore = view.findViewById(R.id.quiz_score);
-            quizScore.setText(Integer.toString(quizsum));
+            quizScore.setText("Quiz Score: " + Integer.toString(quizsum) + "/" + (QuizCount*5));
 
         }
-
-
 
 
         return view;

@@ -4,18 +4,28 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 
-@Entity
+@Entity(tableName = "History")
 public class History {
     @PrimaryKey(autoGenerate = true)
     private int id = 0;
     private String recipeTitle;
     private long duriation;
     private String comment;
+    private int healthScore;
 
-    public History(String recipeTitle, long duriation, String comment) {
+    public int getHealthScore() {
+        return healthScore;
+    }
+
+    public void setHealthScore(int healthScore) {
+        this.healthScore = healthScore;
+    }
+
+    public History(String recipeTitle, long duriation, String comment, int healthScore) {
         this.recipeTitle = recipeTitle;
         this.duriation = duriation;
         this.comment = comment;
+        this.healthScore = healthScore;
     }
 
     public String getRecipe() {

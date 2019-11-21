@@ -34,6 +34,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
         holder.his_title.setText(data.get(position).getRecipeTitle());
         holder.his_du.setText("Time Studying Recipe: "+data.get(position).getDuriation());
         holder.his_comment.setText("Comments: " + data.get(position).getComment());
+        holder.his_score.setText("Health Score: " + data.get(position).getHealthScore());
     }
 
     @Override
@@ -46,9 +47,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Holder>{
         TextView his_title;
         TextView his_du;
         TextView his_comment;
+        TextView his_score;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
+
+            his_score = itemView.findViewById(R.id.HealthScore);
             his_title = itemView.findViewById(R.id.his_title);
             his_du = itemView.findViewById(R.id.his_du);
             his_comment = itemView.findViewById(R.id.his_comment);

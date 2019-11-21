@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Time"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:fontFamily="@font/hind_light" />
 
     <TextView
@@ -28,13 +28,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Comment"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:fontFamily="@font/hind_light" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/HealthScore"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:visibility="invisible" />
+        android:text="Health Score"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:fontFamily="@font/hind_light" />
 </LinearLayout>

@@ -9,6 +9,11 @@ public class Steps {
     private List<Equipment> equipment;
     //private List<Length> length;
 
+    public Steps(String step){
+        this.step=step;
+
+    }
+
     public Steps(int number, List<Ingredients> ingredients,String step,
                  List<Equipment> equipment) {
         this.number = number;

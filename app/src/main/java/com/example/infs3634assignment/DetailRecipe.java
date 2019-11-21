@@ -22,8 +22,12 @@ import com.example.infs3634assignment.ProjectFragments.InProgress;
 import com.example.infs3634assignment.ProjectFragments.ProfileFragment;
 import com.example.infs3634assignment.ProjectFragments.QuizMenuFragment;
 import com.example.infs3634assignment.ProjectFragments.RecipeMenuFragment;
+import com.example.infs3634assignment.model.Equipment;
+import com.example.infs3634assignment.model.Ingredients;
+import com.example.infs3634assignment.model.Steps;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.OnFragmentInteractionListener,
         ProfileFragment.OnFragmentInteractionListener, RecipeMenuFragment.OnFragmentInteractionListener
@@ -104,8 +108,18 @@ public class DetailRecipe extends AppCompatActivity implements QuizMenuFragment.
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         detail_rv.setLayoutManager(linearLayoutManager);
         StepAdapter stepAdapter = new StepAdapter();
+
+
+        try {
         stepAdapter.setData(Data.nowDetail.getAnalyzedInstructions().get(0).getSteps());
-        detail_rv.setAdapter(stepAdapter);
+        detail_rv.setAdapter(stepAdapter);}
+        catch (IndexOutOfBoundsException error){
+            Steps st1 = new Steps("No Recipe Instructions");
+            ArrayList<Steps> errorList = new ArrayList<>();
+            errorList.add(st1);
+            stepAdapter.setData(errorList);
+            detail_rv.setAdapter(stepAdapter);
+        }
 
 //
 //

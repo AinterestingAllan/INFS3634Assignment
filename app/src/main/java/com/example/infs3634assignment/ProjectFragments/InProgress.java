@@ -176,8 +176,9 @@ public class InProgress extends Fragment {
                     long elapsedSeconds = (elapsedMillis / 60);
                     String userComment = comment.getText().toString();
 
+
                     History history = new History(Data.nowCooking.getTitle()
-                            , elapsedSeconds, userComment);
+                            , elapsedSeconds, userComment, Data.nowCooking.getHealthScore());
 
                     AppDatabase db = AppDatabase.getInstance(getContext());
                     HistoryInsertAsyncTask historyInsertAsyncTask = new HistoryInsertAsyncTask();
